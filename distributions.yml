@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  remote_user: root
   tags: distributions
   tasks: 
     - name: group by distribution
@@ -8,24 +9,28 @@
     - all
     
 - hosts: CentOS
+  remote_user: root
   gather_facts: false
   tags: centos
   roles:
     - centos
         
 - hosts: Debian
+  remote_user: root
   gather_facts: false
   tags: debian
   roles:
     - debian
 
 - hosts: Ubuntu
+  remote_user: root
   gather_facts: false
   tags: ubuntu
   roles:
     - ubuntu
 
 - hosts: Fedora
+  remote_user: root
   gather_facts: false
   tags: fedora
   roles:
