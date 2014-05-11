@@ -1,15 +1,17 @@
 ---
-    - name: install apt packages
-      apt: name={{ item }} state=installed update_cache=yes
-      with_items:
-        - emacs23-nox
-        - apache2
-        - facter
-        - htop
-        - python-keyczar
-        - tmux
-        - yaml-mode
-        - zsh
+- name: install apt packages
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+    - emacs23-nox
+    - apache2
+    - facter
+    - htop
+    - python-keyczar
+    - tmux
+    - yaml-mode
+    - zsh
 
-    - name: disable ipv6
-      action: template src=disable-ipv6.conf.j2  dest=/etc/sysctl.d/disable-ipv6.conf
+- name: disable ipv6
+  copy: src={{ item }}  dest=/{{ item }}
+  with_items:
+    - etc/sysctl.d/disable-ipv6.conf

@@ -1,4 +1,7 @@
 ---
+- name: ansible repo
+  apt_repository: repo=ppa:rquillo/ansible
+
 - name: install apt packages
   apt: name={{ item }} state=installed update_cache=yes
   with_items:
@@ -17,13 +20,14 @@
     - zsh
         
 - name: disable ipv6
-  action: template src=disable-ipv6.conf.j2  dest=/etc/sysctl.d/disable-ipv6.conf
-
-- name: ansible repo
-  apt_repository: repo=ppa:rquillo/ansible
+  copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/sysctl.d/disable-ipv6.conf
 
 - name: set timezone
-  copy: src=timezone dest=/etc/timezone
+  copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/timezone
   notify:
     - update timezone
 

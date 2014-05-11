@@ -1,2 +1,4 @@
 ---
-- copy: src=hosts dest=/etc/hosts
+- copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/hosts
