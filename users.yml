@@ -1,0 +1,28 @@
+---
+- hosts: host05
+  remote_user: root
+  gather_facts: false
+  roles:
+  - atilla
+  tags: atilla
+
+- hosts: host05
+  remote_user: root
+  gather_facts: false
+  roles:
+  - cem
+  tags: cem
+
+- hosts: host05
+  remote_user: root
+  gather_facts: false
+  roles:
+  - sarah
+  tags: sarah
+
+- hosts: all
+  remote_user: root
+  gather_facts: false
+  roles:
+  - afsin
+  tags: afsin

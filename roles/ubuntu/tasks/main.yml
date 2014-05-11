@@ -1,0 +1,33 @@
+---
+- name: install apt packages
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+    - emacs23-nox
+    - facter
+    - htop
+    - lynx
+    - nmap
+    - python-keyczar
+    - python-zmq
+    - python-pycurl
+    - sshpass
+    - tmux
+    - traceroute
+    - yaml-mode
+    - zsh
+        
+- name: disable ipv6
+  action: template src=disable-ipv6.conf.j2  dest=/etc/sysctl.d/disable-ipv6.conf
+
+- name: ansible repo
+  apt_repository: repo=ppa:rquillo/ansible
+
+- name: set timezone
+  copy: src=timezone dest=/etc/timezone
+  notify:
+    - update timezone
+
+- name: set dns search string
+  lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search uxxa.eu toparlak.de'
+  notify: 
+    - restart networking

@@ -1,0 +1,6 @@
+---
+var1: 1 from host_vars/host03
+var2: 2 from host_vars/host03
+var3: 3 from host_vars/host03
+var4: 4 from host_vars/host03
+var5: 5 from host_vars/host03

@@ -1,0 +1,8 @@
+---
+- name: Git hosts
+  remote_user: root
+  hosts: host04
+  gather_facts: false
+  tags: git
+  roles:
+    - git

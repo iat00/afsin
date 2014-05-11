@@ -1,0 +1,7 @@
+---
+- include: duo.yml
+- include: postfix.yml
+- include: distributions.yml
+- include: docker.yml
+- include: users.yml
+- include: git.yml

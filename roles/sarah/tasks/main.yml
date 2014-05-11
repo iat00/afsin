@@ -1,0 +1,15 @@
+---
+- user: name=atilla 
+        comment='Atilla Toparlak' 
+        shell=/bin/zsh
+        password='$6$5M.WbJUF$B/.LEG/4HwOPXXdv0WxlRo8RmTJV7SxDs8nOmwdRdBZ4Y8fJWkBn7X8.RoDnVh/bmiUaiq0vcy/w9cLaoVGMJ.'
+
+- user: name=cem
+        comment='Cem Toparlak'
+        shell=/bin/zsh
+        password='$6$j7ZoDKL8$rIhlYiFoX5V0ddzGFRh/WsxiF4qghAcXRrAWkL3kl4/o6E8v2.Ha.luk4Ny0dY0BDDr528l7Hi/6GvnvJCMA//'
+
+- user: name=sarah
+        comment='Sarah Sagemueller'
+        password='$6$nas0INrb$EUYBVRTpMVFG7JtiuYeA5eXb/cApFZ7ztEZ7YUnpI3sln0OTKMEj0W47ItW2rVw2CEgchPGFOR8Kady81gr4q0'
+        shell=/bin/bash

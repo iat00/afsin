@@ -1,0 +1,32 @@
+---
+- hosts: all
+  tags: distributions
+  tasks: 
+    - name: group by distribution
+      group_by: key={{ ansible_distribution }}
+  roles:
+    - all
+    
+- hosts: CentOS
+  gather_facts: false
+  tags: centos
+  roles:
+    - centos
+        
+- hosts: Debian
+  gather_facts: false
+  tags: debian
+  roles:
+    - debian
+
+- hosts: Ubuntu
+  gather_facts: false
+  tags: ubuntu
+  roles:
+    - ubuntu
+
+- hosts: Fedora
+  gather_facts: false
+  tags: fedora
+  roles:
+    - fedora

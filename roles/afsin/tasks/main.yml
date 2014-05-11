@@ -1,0 +1,34 @@
+---
+- user: name=afsin
+        comment='Afsin Toparlak'
+        shell=/bin/zsh
+        password='$1$A.OAhdOI$sIONMKC.56TPVaDRPln8G1'
+
+- file: dest=/home/afsin/.ssh mode=0700
+        group=afsin
+        owner=afsin
+        state=directory
+
+- copy: src={{ item }} owner=afsin group=afsin dest=/home/afsin/{{ item }}
+  with_items:
+    - .ssh/authorized_keys
+    - .emacs
+    - .tmux.conf
+    - .gitignore
+    - .gitconfig
+    - .screenrc
+
+- template: dest=/etc/sudoers.d/afsin
+    src=sudoers.d.j2
+    mode=0440
+
+- template: >
+    dest=/home/afsin/.zshrc
+    owner=afsin group=afsin
+    src=.zshrc.j2
+
+- template: >
+    dest=/home/afsin/.foo
+    group=afsin
+    owner=afsin
+    src=foo.j2
