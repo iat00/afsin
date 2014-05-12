@@ -8,3 +8,5 @@
 	branch = auto
 [core]
 	excludesfile = /home/afsin/.gitignore
+[push]
+	default = simple
