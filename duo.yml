@@ -1,7 +1,7 @@
 ---
 - name: Duo hosts
   remote_user: root
-  hosts: host05
+  hosts: duo
   gather_facts: false
   tags: duo
   roles:

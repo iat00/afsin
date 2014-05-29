@@ -1,7 +1,8 @@
 ---
 - include: duo.yml
 - include: postfix.yml
-- include: distributions.yml
+- include: distributions2.yml
+- include: docker.yml
 - include: users.yml
 - include: git.yml
 - include: zabbix.yml

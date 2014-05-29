@@ -18,7 +18,8 @@
     - traceroute
     - yaml-mode
     - zsh
-        
+    - zabbix-agent
+
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
   with_items:
@@ -35,3 +36,18 @@
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search uxxa.eu toparlak.de'
   notify: 
     - restart networking
+
+- name: customize /etc/zabbix/zabbix_agentd.conf
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Server=127.0.0.1$' line='Server={{ zabbix_server }}' backrefs=yes
+  notify:
+    - restart zabbix-agent
+
+- name: customize /etc/zabbix/zabbix_agentd.conf
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^ServerActive=127.0.0.1$' line='ServerActive={{ zabbix_server }}' backrefs=yes
+  notify:
+    - restart zabbix-agent
+
+- name: customize /etc/zabbix/zabbix_agentd.conf
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=Zabbix server$' line='Hostname={{ inventory_hostname }}' backrefs=yes
+  notify:
+    - restart zabbix-agent

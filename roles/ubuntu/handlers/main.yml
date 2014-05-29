@@ -4,3 +4,6 @@
 
 - name: restart networking
   command: service networking restart
+
+- name: restart zabbix-agent
+  command: service zabbix-agent restart

@@ -1,19 +1,19 @@
 ---
-- hosts: host05
+- hosts: duo
   remote_user: root
   gather_facts: false
   roles:
   - atilla
   tags: atilla
 
-- hosts: host05
+- hosts: duo
   remote_user: root
   gather_facts: false
   roles:
   - cem
   tags: cem
 
-- hosts: host05
+- hosts: duo
   remote_user: root
   gather_facts: false
   roles:

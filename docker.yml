@@ -1,7 +1,8 @@
 ---
 - name: Docker hosts
-  hosts: host03
+  hosts: docker
   remote_user: root
+  gather_facts: false
   tags: docker
   roles:
     - docker

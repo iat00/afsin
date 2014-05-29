@@ -19,16 +19,14 @@
     - .screenrc
 
 - template: dest=/etc/sudoers.d/afsin
-    src=sudoers.d.j2
-    mode=0440
+            src=sudoers.d.j2
+            mode=0440
 
-- template: >
-    dest=/home/afsin/.zshrc
-    owner=afsin group=afsin
-    src=.zshrc.j2
+- template: dest=/home/afsin/.zshrc
+            owner=afsin group=afsin
+            src=.zshrc.j2
 
-- template: >
-    dest=/home/afsin/.foo
-    group=afsin
-    owner=afsin
-    src=foo.j2
+- template: dest=/home/afsin/.foo
+            group=afsin
+            owner=afsin
+            src=foo.j2
