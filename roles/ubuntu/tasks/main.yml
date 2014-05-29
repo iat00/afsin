@@ -19,6 +19,7 @@
     - yaml-mode
     - zsh
     - zabbix-agent
+    - unzip
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
