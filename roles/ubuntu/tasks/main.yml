@@ -20,6 +20,7 @@
     - zsh
     - zabbix-agent
     - unzip
+    - fail2ban
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
@@ -52,3 +53,13 @@
   lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=Zabbix server$' line='Hostname={{ inventory_hostname }}' backrefs=yes
   notify:
     - restart zabbix-agent
+
+- name: customize /etc/fail2ban/jail.conf
+  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 600' line='bantime = 3600' backrefs=yes
+  notify:
+    - restart fail2ban
+
+- name: customize /etc/fail2ban/jail.conf
+  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
+  notify:
+    - restart fail2ban
