@@ -55,7 +55,7 @@
     - restart zabbix-agent
 
 - name: customize /etc/fail2ban/jail.conf
-  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 600' line='bantime = 3600' backrefs=yes
+  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
   notify:
     - restart fail2ban
 
