@@ -1,0 +1,8 @@
+---
+- name: postfix2 hosts
+  remote_user: root
+  hosts: postfix2
+  gather_facts: false
+  tags: postfix2
+  roles:
+    - postfix2
