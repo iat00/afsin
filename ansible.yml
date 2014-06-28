@@ -1,0 +1,8 @@
+---
+- name: Ansible hosts
+  remote_user: root
+  hosts: ansible
+  gather_facts: false
+  tags: ansible
+  roles:
+    - ansible
