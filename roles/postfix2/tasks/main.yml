@@ -44,7 +44,7 @@
         - create virtual.db
         - restart postfix
 
-    - name: creates virtual.db
+    - name: create virtual.db
       shell: postmap /etc/postfix/virtual
              creates=/etc/postfix/virtual.db
       notify:

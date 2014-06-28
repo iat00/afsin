@@ -1,4 +1,4 @@
 ---
-- apt: name={{ item }} state=installed update_cache=yes
+- apt: name={{ item }} state=installed
   with_items:
     - git
