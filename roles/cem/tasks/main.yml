@@ -1,5 +1,10 @@
 ---
+- group: name=cem
+         gid=5002
+
 - user: name=cem
         comment='Cem Toparlak'
         shell=/bin/zsh
         password='$6$j7ZoDKL8$rIhlYiFoX5V0ddzGFRh/WsxiF4qghAcXRrAWkL3kl4/o6E8v2.Ha.luk4Ny0dY0BDDr528l7Hi/6GvnvJCMA//'
+        uid=5002
+        group=cem

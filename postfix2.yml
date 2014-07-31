@@ -1,7 +1,6 @@
 ---
-- name: postfix2 hosts
+- hosts: postfix2
   remote_user: root
-  hosts: postfix2
   gather_facts: false
   tags: postfix2
   roles:

@@ -1,6 +1,5 @@
 ---
-- name: Docker hosts
-  hosts: docker
+- hosts: docker
   remote_user: root
   gather_facts: false
   tags: docker

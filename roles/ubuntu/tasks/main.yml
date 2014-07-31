@@ -3,7 +3,7 @@
   apt_repository: repo=ppa:rquillo/ansible
 
 - name: install apt packages
-  apt: name={{ item }} state=installed update_cache=yes
+  apt: name={{ item }} state=installed
   with_items:
     - emacs23-nox
     - facter
@@ -18,7 +18,6 @@
     - traceroute
     - yaml-mode
     - zsh
-    - zabbix-agent
     - unzip
     - fail2ban
 
@@ -38,21 +37,6 @@
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search uxxa.eu toparlak.de'
   notify: 
     - restart networking
-
-- name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Server=127.0.0.1$' line='Server={{ zabbix_server }}' backrefs=yes
-  notify:
-    - restart zabbix-agent
-
-- name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^ServerActive=127.0.0.1$' line='ServerActive={{ zabbix_server }}' backrefs=yes
-  notify:
-    - restart zabbix-agent
-
-- name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=Zabbix server$' line='Hostname={{ inventory_hostname }}' backrefs=yes
-  notify:
-    - restart zabbix-agent
 
 - name: customize /etc/fail2ban/jail.conf
   lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes

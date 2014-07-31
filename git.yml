@@ -1,7 +1,6 @@
 ---
-- name: Git hosts
+- hosts: git
   remote_user: root
-  hosts: git
   gather_facts: false
   tags: git
   roles:

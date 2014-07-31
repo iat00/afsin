@@ -4,23 +4,10 @@
   gather_facts: false
   roles:
   - atilla
-  tags: atilla
-
-- hosts: duo
-  remote_user: root
-  gather_facts: false
-  roles:
   - cem
-  tags: cem
-
-- hosts: duo
-  remote_user: root
-  gather_facts: false
-  roles:
   - sarah
-  tags: sarah
 
-- hosts: all
+- hosts: all:!ldap-client
   remote_user: root
   gather_facts: false
   roles:

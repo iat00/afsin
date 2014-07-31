@@ -1,8 +1,13 @@
 ---
+- group: name=afsin
+         gid=5000
+
 - user: name=afsin
         comment='Afsin Toparlak'
         shell=/bin/zsh
         password='$1$A.OAhdOI$sIONMKC.56TPVaDRPln8G1'
+        uid=5000
+        group=afsin
 
 - file: dest=/home/afsin/.ssh mode=0700
         group=afsin
