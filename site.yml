@@ -1,6 +1,6 @@
 ---
-- include: ansible.yml
 - include: distributions2.yml
+- include: ansible.yml
 - include: docker.yml
 - include: duo.yml
 - include: git.yml
