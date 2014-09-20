@@ -2,17 +2,22 @@
     - name: install apt packages
       apt: name={{ item }} state=installed
       with_items:
-        - dovecot-postfix
+        - postfix
         - postfix-policyd-spf-python
         - spamassassin
         - spamc
+        - dovecot-core
+        - dovecot-imapd
+        - dovecot-pop3d
+        - dovecot-managesieved
+        - dovecot-sieve
 
     - name: group spamd
       group: name=spamd
 
     - name: user spamd
       user: name=spamd home=/var/log/spamassassin shell=/bin/false group=spamd
-      
+
     - name: customize /etc/default/spamassassin
       lineinfile: dest=/etc/default/spamassassin regexp='^ENABLED=0' line='ENABLED=1' backrefs=yes
 
@@ -20,7 +25,7 @@
       lineinfile: dest=/etc/default/spamassassin regexp='^CRON=0' line='CRON=1' backrefs=yes
 
     - name: customize /etc/default/spamassassin
-      lineinfile: dest=/etc/default/spamassassin regexp='^OPTIONS="--create-prefs --max-children 5 --helper-home-dir"' line='OPTIONS="--create-prefs --max-children 2 --username spamd -H ${SAHOME} -s ${SAHOME}spamd.log"' backrefs=yes
+      lineinfile: dest=/etc/default/spamassassin regexp='^OPTIONS="--create-prefs --max-children 5 --helper-home-dir"' line='OPTIONS="-4 --create-prefs --max-children 2 --username spamd -H ${SAHOME} -s ${SAHOME}spamd.log"' backrefs=yes
 
     - name: customize /etc/default/spamassassin
       lineinfile: dest=/etc/default/spamassassin insertbefore='^OPTIONS=' line='SAHOME="/var/log/spamassassin/"'
@@ -28,10 +33,21 @@
     - name: customize /etc/spamassassin/local.cf
       lineinfile:  dest=/etc/spamassassin/local.cf regexp='^# rewrite_header Subject \*\*\*\*\*SPAM\*\*\*\*\*' line='rewrite_header Subject *****SPAM*****' backrefs=yes
 
+    - name: ensure spamd is running
+      service: name=spamassassin state=started
+      notify:
+        - restart postfix
+
     - name: copy virtual
       copy: src=virtual dest=/etc/postfix/virtual
       notify:
         - create virtual.db
+        - restart postfix
+
+    - name: create virtual.db
+      shell: postmap /etc/postfix/virtual
+             creates=/etc/postfix/virtual.db
+      notify:
         - restart postfix
 
     - name: copy mailname
@@ -41,7 +57,7 @@
         - restart postfix
 
     - name: customize /etc/postfix/main.cf
-      lineinfile: dest=/etc/postfix/main.cf regexp='^mydestination = ' line='mydestination = host01.uxxa.eu, host02.uxxa.eu, uxxa.eu, toparlak.de, localhost, localhost.localdomain'
+      lineinfile: dest=/etc/postfix/main.cf regexp='^mydestination = ' line='mydestination = toparlak.de, localhost, localhost.localdomain'
 
     - name: customize /etc/postfix/main.cf 
       lineinfile: dest=/etc/postfix/main.cf regexp='smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination' line='smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, check_policy_service unix:private/policy-spf'

@@ -3,7 +3,7 @@
   command: dpkg-reconfigure --frontend noninteractive tzdata
 
 - name: restart networking
-  command: service networking restart
+  shell: (ifdown eth0 ; ifup eth0) &
 
 - name: restart fail2ban
   command: service fail2ban restart

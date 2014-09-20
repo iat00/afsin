@@ -1,7 +1,0 @@
----
-- hosts: postfix2
-  remote_user: root
-  gather_facts: false
-  tags: postfix2
-  roles:
-    - postfix2

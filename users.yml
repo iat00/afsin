@@ -7,7 +7,7 @@
   - cem
   - sarah
 
-- hosts: all:!ldap-client
+- hosts: all
   remote_user: root
   gather_facts: false
   roles:

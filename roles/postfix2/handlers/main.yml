@@ -1,6 +1,0 @@
----
-    - name: restart postfix
-      service: name=postfix state=restarted
-
-    - name: create virtual.db
-      shell: postmap /etc/postfix/virtual

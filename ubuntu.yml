@@ -1,7 +1,0 @@
----
-- hosts: ubuntu
-  remote_user: root
-  gather_facts: false
-  tags: ubuntu
-  roles:
-    - ubuntu
