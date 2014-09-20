@@ -1,0 +1,17 @@
+---
+- digital_ocean: >
+    state=present
+    command=droplet
+    name=host09.toparlak.de
+    client_id=f8d41c5e8a7a44fe208c9b78f4d8bc67
+    api_key=b4079ab0615cf186156390272474bc9f
+    size_id=66
+    region_id=2
+    image_id=5141286
+    wait_timeout=500
+    unique_name=true
+    ssh_key_ids=61195
+  register: host09
+
+- debug: msg="ID is {{ host09.droplet.id }}"
+- debug: msg="IP is {{ host09.droplet.ip_address }}"
