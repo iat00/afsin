@@ -1,5 +1,0 @@
----
-- hosts: all
-  gather_facts: false
-  tasks:
-  - shell: echo '{{group_names}}'
