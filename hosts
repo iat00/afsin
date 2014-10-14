@@ -1,0 +1,12 @@
+[postfix]
+host01
+host02
+
+[ansible]
+host03
+
+[git]
+host03
+
+[zfs]
+host04
