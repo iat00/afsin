@@ -1,7 +1,0 @@
----
-- hosts: zabbix
-  remote_user: root
-  gather_facts: false
-  tags: zabbix
-  roles:
-    - zabbix

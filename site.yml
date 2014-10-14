@@ -1,8 +1,14 @@
 ---
 - include: all.yml
-- include: distributions.yml
 - include: ansible.yml
+- include: distributions.yml
+- include: docker.yml
+- include: duo.yml
+- include: gateone.yml
 - include: git.yml
+- include: haproxy.yml
 - include: postfix.yml
-- include: zfs.yml
 - include: users.yml
+- include: zabbix-server.yml
+- include: zabbix-agents.yml
+- include: zfs.yml
