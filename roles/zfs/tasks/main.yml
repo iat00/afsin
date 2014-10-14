@@ -1,0 +1,5 @@
+---
+- name: zfs repo
+  apt_repository: repo=ppa:zfs-native/stable
+
+- apt: name=ubuntu-zfs state=present

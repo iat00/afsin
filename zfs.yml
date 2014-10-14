@@ -1,0 +1,7 @@
+---
+- hosts: zfs
+  remote_user: root
+  gather_facts: false
+  tags: zfs
+  roles:
+    - zfs
