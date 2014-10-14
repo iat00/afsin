@@ -2,6 +2,7 @@
 - hosts: duo
   remote_user: root
   gather_facts: false
+  tags: users
   roles:
   - atilla
   - cem
@@ -10,5 +11,6 @@
 - hosts: all
   remote_user: root
   gather_facts: false
+  tags: users
   roles:
   - afsin

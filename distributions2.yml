@@ -1,7 +1,7 @@
 ---
 - hosts: all
   remote_user: root
-  tags: distributions
+  tags: distributions2
   roles:
     - { role: centos, when: ansible_distribution == 'CentOS' }
     - { role: debian, when: ansible_distribution == 'Debian' }
