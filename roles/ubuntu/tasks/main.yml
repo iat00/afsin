@@ -20,6 +20,7 @@
     - zsh
     - unzip
     - fail2ban
+    - psmisc
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}

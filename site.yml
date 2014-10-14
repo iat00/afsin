@@ -4,3 +4,5 @@
 - include: ansible.yml
 - include: git.yml
 - include: postfix.yml
+- include: zfs.yml
+- include: users.yml
