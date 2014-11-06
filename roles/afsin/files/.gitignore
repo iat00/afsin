@@ -11,3 +11,5 @@
 .zcompdump
 .zhistory
 .zshrc*
+.ssh
+tmp

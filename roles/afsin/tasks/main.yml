@@ -24,6 +24,12 @@
     - .screenrc
     - .zshrc
 
+- copy: dest=/home/afsin/.ssh/id_rsa
+        src=.ssh/id_rsa
+        owner=afsin
+        group=afsin
+        mode=600
+
 - template: dest=/etc/sudoers.d/afsin
             src=sudoers.d.j2
             mode=0440
@@ -32,7 +38,7 @@
             owner=afsin group=afsin
             src=.zshrc.j2
 
-- template: dest=/home/afsin/.foo
+- template: dest=/home/afsin/tmp/foo
             group=afsin
             owner=afsin
             src=foo.j2
