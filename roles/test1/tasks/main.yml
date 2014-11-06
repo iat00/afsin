@@ -1,0 +1,6 @@
+---
+- copy: src={{ item }} dest=/tmp/index.html
+  with_first_found:
+    - "{{ inventory_hostname }}.index.html"
+    - "{{ ansible_os_family }}.index.html"
+    - general.index.html

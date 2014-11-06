@@ -1,0 +1,24 @@
+---
+# tasks file for roles/keepass2
+- apt: name=kpcli                     state=present
+- apt: name=libterm-readline-gnu-perl state=present
+- apt: name=libdata-password-perl     state=present
+- apt: name=apache2-utils             state=present
+
+- file: dest=/etc/nginx/ssl state=directory
+
+- copy: src={{ inventory_hostname }}.{{ domain }}.crt dest=/etc/nginx/ssl/
+  notify:
+    - restart nginx
+
+- copy: src={{ inventory_hostname }}.{{ domain }}.key dest=/etc/nginx/ssl/
+  notify:
+    - restart nginx
+
+- copy: src=htpasswd dest=/etc/nginx/htpasswd
+  notify:
+    - restart nginx
+
+- template: src=default  dest=/etc/nginx/sites-available/
+  notify:
+    - restart nginx

@@ -1,0 +1,6 @@
+---
+- hosts: host05:host07:host08
+  remote_user: root
+  tags: test1
+  roles:
+    - test1

@@ -1,0 +1,7 @@
+---
+- hosts: keepass2
+  remote_user: root
+  gather_facts: false
+  tags: keepass2
+  roles:
+    - {role: keepass2}

@@ -1,0 +1,12 @@
+upstream backend  {
+# ip_hash;
+  {% for host in nginx_hosts %}
+  server {{ host.hostname }}.{{ domain }} weight={{ host.weight }};
+  {% endfor %}
+}
+
+server {
+  location / {
+    proxy_pass  http://backend;
+  }
+}

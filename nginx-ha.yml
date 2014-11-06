@@ -1,0 +1,14 @@
+---
+- hosts: nginx
+  remote_user: root
+  gather_facts: false
+  tags: nginx
+  roles:
+    - {role: nginx}
+
+- hosts: lb
+  remote_user: root
+  gather_facts: false
+  tags: lb
+  roles:
+    - {role: lb, domain: toparlak.de, nginx_hosts: [{hostname: host08, weight: 1}, {hostname: host09, weight: 1}]}
