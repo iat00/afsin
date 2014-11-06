@@ -1,2 +1,12 @@
 *~
 .ansible_async
+.ansible
+.zhistory
+.mysql_history
+.tmux.conf
+.gitignore
+.gitconfig
+.screenrc
+.zcompdump
+.zshrc*
+.netrc

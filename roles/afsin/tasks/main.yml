@@ -22,6 +22,7 @@
     - .gitignore
     - .gitconfig
     - .screenrc
+    - .zshrc
 
 - template: dest=/etc/sudoers.d/afsin
             src=sudoers.d.j2
