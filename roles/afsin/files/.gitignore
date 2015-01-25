@@ -1,6 +1,9 @@
 *~
 .ansible
 .ansible_async
+.cache
+.config
+.local
 .emacs
 .gitconfig
 .gitignore

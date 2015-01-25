@@ -49,3 +49,6 @@
 #  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
 #  notify:
 #    - restart fail2ban
+
+- apt: name=munin-node state=installed
+- copy: src=etc/munin/munin-node.conf dest=/etc/munin/munin-node.conf
