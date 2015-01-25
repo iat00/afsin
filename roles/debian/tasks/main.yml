@@ -10,6 +10,7 @@
     - tmux
     - yaml-mode
     - zsh
+    - mc
 
 - name: disable ipv6
   copy: src={{ item }}  dest=/{{ item }}

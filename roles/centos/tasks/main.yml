@@ -2,8 +2,7 @@
     - name: install yum packages
       yum: name={{ item }} state=installed
       with_items:
-        - http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-        - http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+        - epel-release
         - emacs-nox
         - facter
         - htop

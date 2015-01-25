@@ -5,7 +5,7 @@
 - name: install apt packages
   apt: name={{ item }} state=installed
   with_items:
-    - emacs23-nox
+    - emacs24-nox
     - facter
     - htop
     - lynx
@@ -19,8 +19,9 @@
     - yaml-mode
     - zsh
     - unzip
-    - fail2ban
     - psmisc
+    - vim
+    - mc
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
@@ -39,12 +40,12 @@
   notify: 
     - restart networking
 
-- name: customize /etc/fail2ban/jail.conf
-  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
-  notify:
-    - restart fail2ban
+#- name: customize /etc/fail2ban/jail.conf
+#  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
+#  notify:
+#    - restart fail2ban
 
-- name: customize /etc/fail2ban/jail.conf
-  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
-  notify:
-    - restart fail2ban
+#- name: customize /etc/fail2ban/jail.conf
+#  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
+#  notify:
+#    - restart fail2ban

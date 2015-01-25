@@ -1,6 +1,5 @@
 ---
 - hosts: ansible
-  remote_user: root
   gather_facts: false
   tags: ansible
   roles:

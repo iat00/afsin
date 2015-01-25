@@ -1,6 +1,5 @@
 ---
 - hosts: git
-  remote_user: root
   gather_facts: false
   tags: git
   roles:

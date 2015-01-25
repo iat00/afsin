@@ -1,6 +1,5 @@
 ---
 - hosts: duo
-  remote_user: root
   gather_facts: false
   tags: duo
   roles:

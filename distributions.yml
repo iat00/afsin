@@ -1,34 +1,29 @@
 ---
 - hosts: all
-  remote_user: root
   tags: distributions
   tasks:
     - name: group by distribution
       group_by: key={{ ansible_distribution }}
 
 - hosts: Fedora
-  remote_user: root
   gather_facts: false
   tags: fedora
   roles:
     - fedora
 
 - hosts: CentOS
-  remote_user: root
   gather_facts: false
   tags: centos
   roles:
     - centos
 
 - hosts: Debian
-  remote_user: root
   gather_facts: false
   tags: debian
   roles:
     - debian
 
 - hosts: Ubuntu
-  remote_user: root
   gather_facts: false
   tags: ubuntu
   roles:

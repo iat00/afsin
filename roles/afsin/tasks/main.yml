@@ -9,20 +9,21 @@
         uid=5000
         group=afsin
 
-- file: dest=/home/afsin/.ssh mode=0700
-        group=afsin
-        owner=afsin
+- file: dest=/home/afsin/.ssh
         state=directory
+        owner=afsin
+        group=afsin
+        mode=0700
 
 - copy: src={{ item }} owner=afsin group=afsin dest=/home/afsin/{{ item }}
   with_items:
     - .ssh/authorized_keys
+    - .ssh/config
     - .emacs
     - .tmux.conf
     - .gitignore
     - .gitconfig
     - .screenrc
-    - .zshrc
 
 - copy: dest=/home/afsin/.ssh/id_rsa
         src=.ssh/id_rsa
@@ -30,15 +31,21 @@
         group=afsin
         mode=600
 
-- template: dest=/etc/sudoers.d/afsin
-            src=sudoers.d.j2
-            mode=0440
+- copy: dest=/etc/sudoers.d/afsin
+        src=sudoers.d
+        mode=0440
 
 - template: dest=/home/afsin/.zshrc
-            owner=afsin group=afsin
             src=.zshrc.j2
+            owner=afsin
+            group=afsin
+
+- file: dest=/home/afsin/tmp
+        state=directory
+        owner=afsin
+        group=afsin
 
 - template: dest=/home/afsin/tmp/foo
-            group=afsin
-            owner=afsin
             src=foo.j2
+            owner=afsin
+            group=afsin

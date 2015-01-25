@@ -13,3 +13,4 @@
 .zshrc*
 .ssh
 tmp
+*.retry

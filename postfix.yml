@@ -1,6 +1,5 @@
 ---
 - hosts: postfix
-  remote_user: root
   gather_facts: false
   tags: postfix
   roles:

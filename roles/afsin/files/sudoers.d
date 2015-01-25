@@ -1,4 +1,2 @@
 afsin		ALL=(ALL) NOPASSWD: ALL
-sarah		ALL=(ALL) NOPASSWD: ALL
-cem		ALL=(ALL) NOPASSWD: ALL
 Defaults        shell_noargs

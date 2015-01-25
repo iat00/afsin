@@ -1,6 +1,5 @@
 ---
 - hosts: gateone
-  remote_user: root
   gather_facts: false
   tags: gateone
   roles:

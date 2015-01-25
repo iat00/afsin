@@ -1,0 +1,6 @@
+---
+- hosts: fail2ban
+  gather_facts: false
+  tags: fail2ban
+  roles:
+    - fail2ban

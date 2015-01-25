@@ -1,6 +1,5 @@
 ---
 - hosts: duo
-  remote_user: root
   gather_facts: false
   tags: users
   roles:
@@ -9,8 +8,13 @@
   - sarah
 
 - hosts: all
-  remote_user: root
   gather_facts: false
   tags: users
   roles:
   - afsin
+
+- hosts: host10:host11
+  gather_facts: false
+  tags: users
+  roles:
+  - cem

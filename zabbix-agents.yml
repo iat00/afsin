@@ -1,6 +1,5 @@
 ---
 - hosts: zabbix-agents
-  remote_user: root
   gather_facts: false
   tags: zabbix-agents
   roles:

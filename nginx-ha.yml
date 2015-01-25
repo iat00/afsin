@@ -1,13 +1,11 @@
 ---
 - hosts: nginx
-  remote_user: root
   gather_facts: false
   tags: nginx
   roles:
     - {role: nginx}
 
 - hosts: lb
-  remote_user: root
   gather_facts: false
   tags: lb
   roles:
