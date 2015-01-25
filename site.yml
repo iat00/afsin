@@ -10,6 +10,8 @@
 - include: postfix.yml
 - include: users.yml
 - include: zabbix-server.yml
-- include: zabbix-agents.yml
+- include: zabbix-agent.yml
 - include: zfs.yml
 - include: fail2ban.yml
+- include: munin.yml
+- include: munin-node.yml
