@@ -25,7 +25,7 @@
     - .gitconfig
     - .screenrc
 
-# the following private is secured with a passphrase
+# the following private key is secured with a passphrase
 #
 - copy: dest=/home/afsin/.ssh/id_rsa
         src=.ssh/id_rsa
