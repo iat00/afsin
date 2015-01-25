@@ -1,0 +1,6 @@
+---
+- hosts: zabbix-agent
+  gather_facts: false
+  tags: zabbix-agent
+  roles:
+    - zabbix-agent
