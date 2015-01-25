@@ -1,0 +1,6 @@
+---
+- hosts: munin
+  gather_facts: false
+  tags: munin
+  roles:
+    - munin
