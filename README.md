@@ -2,6 +2,9 @@ This is my personal repository at GitHub.
 
 My current projects:
 
+GitLab CI
+=========
+
 Tutum
 =====
 
