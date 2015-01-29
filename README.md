@@ -2,7 +2,7 @@ This is my personal repository at GitHub.
 
 My current projects:
 
-GitLab CI
+https://about.gitlab.com/
 =========
 
 Tutum
