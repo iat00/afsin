@@ -1,12 +1,9 @@
 ---
 - include: all.yml
-- include: ansible.yml
 - include: distributions.yml
 - include: docker.yml
 - include: duo.yml
 - include: gateone.yml
-- include: git.yml
-- include: haproxy.yml
 - include: postfix.yml
 - include: users.yml
 - include: zabbix-server.yml
@@ -14,4 +11,3 @@
 - include: zfs.yml
 - include: fail2ban.yml
 - include: munin.yml
-- include: munin-node.yml

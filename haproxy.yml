@@ -1,6 +1,0 @@
----
-- hosts: haproxy
-  gather_facts: false
-  tags: haproxy
-  roles:
-    - haproxy

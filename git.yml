@@ -1,6 +1,0 @@
----
-- hosts: git
-  gather_facts: false
-  tags: git
-  roles:
-    - git

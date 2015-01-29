@@ -1,6 +1,0 @@
----
-- hosts: ansible
-  gather_facts: false
-  tags: ansible
-  roles:
-    - ansible

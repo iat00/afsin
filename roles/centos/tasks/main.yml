@@ -1,10 +1,19 @@
 ---
-    - name: install yum packages
-      yum: name={{ item }} state=installed
-      with_items:
-        - epel-release
-        - emacs-nox
-        - facter
-        - htop
-        - tmux
-        - zsh
+- name: install yum packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - epel-release
+    - emacs-nox
+    - facter
+    - htop
+    - tmux
+    - zsh
+    - lynx
+    - libvirt
+    - libvirt-python
+    - libxml2-python
+    - qemu-kvm
+    - lsof
+
+- yum: name=munin-node state=installed
+- copy: src=etc/munin/munin-node.conf dest=/etc/munin/munin-node.conf

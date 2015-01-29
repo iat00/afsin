@@ -1,6 +1,0 @@
----
-- hosts: munin-node
-  gather_facts: false
-  tags: munin-node
-  roles:
-    - munin-node

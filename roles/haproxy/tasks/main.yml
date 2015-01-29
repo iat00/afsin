@@ -1,8 +1,0 @@
----
-- apt: name={{ item }} state=installed update_cache=yes
-  with_items:
-    - haproxy
-
-- lineinfile: dest=/etc/default/haproxy regexp='{{ item.regexp }}' line='{{ item.line }}' backrefs=yes
-  with_items:
-    - { regexp: '^ENABLED=0$', line: 'ENABLED=1' }

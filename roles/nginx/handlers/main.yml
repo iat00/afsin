@@ -1,4 +1,3 @@
 ---
-# handlers file for roles/keepass2
 - name: restart nginx
   service: name=nginx state=restarted
