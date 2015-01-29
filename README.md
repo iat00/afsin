@@ -2,11 +2,9 @@ This is my personal repository at GitHub.
 
 My current projects:
 
-https://about.gitlab.com/
-=========
+http://gitlab.com/
 
-Tutum
-=====
+http://tutum.co
 
 SourceTree
 ==========
