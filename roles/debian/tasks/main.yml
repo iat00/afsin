@@ -11,6 +11,7 @@
     - yaml-mode
     - zsh
     - mc
+    - mailutils
 
 - name: disable ipv6
   copy: src={{ item }}  dest=/{{ item }}
