@@ -1,5 +1,0 @@
----
-- hosts: '{{ hosts }}'
-  tags: test1
-  roles:
-    - test1
