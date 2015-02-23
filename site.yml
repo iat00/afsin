@@ -9,19 +9,6 @@
     - { role: fedora, when: ansible_distribution == 'Fedora' }
     - afsin
 
-- hosts: docker
-  tags: docker
-  roles:
-    - docker
-
-- hosts: duo
-  tags: duo
-  roles:
-    - duo
-    - atilla
-    - cem
-    - sarah
-
 - hosts: fail2ban
   tags: fail2ban
   roles:
@@ -36,11 +23,6 @@
   tags: postfix
   roles:
     - postfix
-
-- hosts: host10:host11:host08
-  tags: cem
-  roles:
-  - cem
 
 - hosts: nginx
   tags: nginx
