@@ -14,6 +14,3 @@
     - libxml2-python
     - qemu-kvm
     - lsof
-
-- yum: name=munin-node state=installed
-- copy: src=etc/munin/munin-node.conf dest=/etc/munin/munin-node.conf

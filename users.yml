@@ -13,7 +13,7 @@
   roles:
   - afsin
 
-- hosts: host10:host11
+- hosts: host10:host11:host08
   gather_facts: false
   tags: users
   roles:

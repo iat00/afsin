@@ -5,7 +5,6 @@
 - name: install apt packages
   apt: name={{ item }} state=installed
   with_items:
-    - emacs24-nox
     - facter
     - htop
     - lynx
@@ -22,6 +21,13 @@
     - psmisc
     - vim
     - mc
+    - mailutils
+
+- apt: name=emacs23-nox state=installed
+  when: ansible_distribution_version == "12.04"
+
+- apt: name=emacs24-nox state=installed
+  when: ansible_distribution_version == "14.04"
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
@@ -39,16 +45,3 @@
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
   notify: 
     - restart networking
-
-#- name: customize /etc/fail2ban/jail.conf
-#  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
-#  notify:
-#    - restart fail2ban
-
-#- name: customize /etc/fail2ban/jail.conf
-#  lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
-#  notify:
-#    - restart fail2ban
-
-- apt: name=munin-node state=installed
-- copy: src=etc/munin/munin-node.conf dest=/etc/munin/munin-node.conf

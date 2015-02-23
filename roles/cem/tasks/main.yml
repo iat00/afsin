@@ -5,7 +5,7 @@
 - user: name=cem
         comment='Cem Toparlak'
         shell=/bin/bash
-        password='$6$j7ZoDKL8$rIhlYiFoX5V0ddzGFRh/WsxiF4qghAcXRrAWkL3kl4/o6E8v2.Ha.luk4Ny0dY0BDDr528l7Hi/6GvnvJCMA//'
+        password='$6$pcr9h0DR$5/dRQIgpD42PjjCKRCJktqLqN6vGhn8bv2iTd/eyl3IQIl/noyYMezpJwM2JdVPDb8ROzJsjgriL2qhWfiWbO0'
         uid=5002
         group=cem
 

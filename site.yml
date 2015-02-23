@@ -3,11 +3,12 @@
 - include: distributions.yml
 - include: docker.yml
 - include: duo.yml
+- include: fail2ban.yml
 - include: gateone.yml
+- include: keepass2.yml
+- include: monit.yml
 - include: postfix.yml
 - include: users.yml
-- include: zabbix-server.yml
 - include: zabbix-agent.yml
+- include: zabbix-server.yml
 - include: zfs.yml
-- include: fail2ban.yml
-- include: munin.yml

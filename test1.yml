@@ -1,5 +1,5 @@
 ---
-- hosts: host05:host07:host08
+- hosts: '{{ hosts }}'
   tags: test1
   roles:
     - test1
