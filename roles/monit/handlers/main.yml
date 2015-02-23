@@ -1,0 +1,4 @@
+---
+# handlers file for roles/monit
+- name: restart monit
+  service: name=monit state=restarted
