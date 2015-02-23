@@ -1,6 +1,0 @@
----
-- hosts: gateone
-  gather_facts: false
-  tags: gateone
-  roles:
-    - gateone

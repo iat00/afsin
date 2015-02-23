@@ -1,8 +1,0 @@
----
-- hosts: all
-  tags: distributions2
-  roles:
-    - { role: centos, when: ansible_distribution == 'CentOS' }
-    - { role: debian, when: ansible_distribution == 'Debian' }
-    - { role: ubuntu, when: ansible_distribution == 'Ubuntu' }
-    - { role: fedora, when: ansible_distribution == 'Fedora' }

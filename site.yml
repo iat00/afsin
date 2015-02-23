@@ -1,14 +1,37 @@
 ---
-- include: all.yml
-- include: distributions.yml
-- include: docker.yml
-- include: duo.yml
-- include: fail2ban.yml
-- include: gateone.yml
-- include: keepass2.yml
-- include: monit.yml
-- include: postfix.yml
-- include: users.yml
-- include: zabbix-agent.yml
-- include: zabbix-server.yml
-- include: zfs.yml
+- hosts: all
+  tags: all
+  roles:
+    - all
+    - { role: centos, when: ansible_distribution == 'CentOS' }
+    - { role: debian, when: ansible_distribution == 'Debian' }
+    - { role: ubuntu, when: ansible_distribution == 'Ubuntu' }
+    - { role: fedora, when: ansible_distribution == 'Fedora' }
+    - afsin
+
+- hosts: docker
+  roles:
+    - docker
+
+- hosts: duo
+  roles:
+    - duo
+    - atilla
+    - cem
+    - sarah
+
+- hosts: fail2ban
+  roles:
+    - fail2ban
+
+- hosts: monit
+  roles:
+    - monit
+
+- hosts: postfix
+  roles:
+    - postfix
+
+- hosts: host10:host11:host08
+  roles:
+  - cem

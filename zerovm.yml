@@ -1,6 +1,0 @@
----
-- hosts: zerovm
-  gather_facts: false
-  tags: zerovm
-  roles:
-    - zerovm

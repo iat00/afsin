@@ -1,6 +1,0 @@
----
-- hosts: zfs
-  gather_facts: false
-  tags: zfs
-  roles:
-    - zfs

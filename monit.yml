@@ -1,5 +1,0 @@
----
-- hosts: monit
-  tags: monit
-  roles:
-    - monit

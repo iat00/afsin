@@ -1,6 +1,0 @@
----
-- hosts: zabbix-server
-  gather_facts: false
-  tags: zabbix-server
-  roles:
-    - zabbix-server

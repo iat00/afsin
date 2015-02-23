@@ -1,6 +1,0 @@
----
-- hosts: docker
-  gather_facts: false
-  tags: docker
-  roles:
-    - docker

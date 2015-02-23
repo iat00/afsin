@@ -1,6 +1,0 @@
----
-- hosts: duo
-  gather_facts: false
-  tags: duo
-  roles:
-    - duo

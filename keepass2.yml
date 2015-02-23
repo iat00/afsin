@@ -1,6 +1,0 @@
----
-- hosts: keepass2
-  gather_facts: false
-  tags: keepass2
-  roles:
-    - {role: keepass2}
