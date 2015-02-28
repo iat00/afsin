@@ -1,6 +1,6 @@
 [user]
-	name = Afsin Toparlak
-	email = afsin@toparlak.de
+	name   = Afsin Toparlak
+	email  = afsin@toparlak.de
 [credential]
 	helper = cache --timeout=3600
 [color]
