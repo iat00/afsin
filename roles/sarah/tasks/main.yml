@@ -4,7 +4,7 @@
 
 - user: name=sarah
         comment='Sarah Sagemueller'
-        password='$6$nas0INrb$EUYBVRTpMVFG7JtiuYeA5eXb/cApFZ7ztEZ7YUnpI3sln0OTKMEj0W47ItW2rVw2CEgchPGFOR8Kady81gr4q0'
+        password='$6$Qukw9YQ0$xWqQsSXTk1A8AkOBqEDAEZU.I6uxIkA2u1GfEOMJbMn3BOWA52b3PCo0nXWdFy3irAv86L0tQ2tgYtn2xwlcu/'
         shell=/bin/bash
         uid=5003
         group=sarah

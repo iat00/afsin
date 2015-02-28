@@ -1,5 +1,0 @@
----
-# tasks file for roles/munin-node
-
-- apt: name=munin-node state=installed
-- copy: src=etc/munin/munin-node.conf dest=/etc/munin/munin-node.conf

@@ -23,7 +23,7 @@
     - mc
     - mailutils
 
-- apt: name={{ emacsnox }} state=installed
+- apt: name={{ emacs }} state=installed
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
