@@ -2,7 +2,6 @@
 - name: install apt packages
   apt: name={{ item }} state=installed update_cache=yes
   with_items:
-    - emacs23-nox
     - apache2
     - facter
     - htop
@@ -12,6 +11,8 @@
     - zsh
     - mc
     - mailutils
+
+- apt: name={{ emacsnox }} state=installed
 
 - name: disable ipv6
   copy: src={{ item }}  dest=/{{ item }}

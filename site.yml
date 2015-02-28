@@ -1,25 +1,29 @@
 ---
-- hosts: all
+- hosts: all:!host08
   tags: default
   roles:
     - all
-    - { role: centos, when: ansible_distribution == 'CentOS' }
-    - { role: debian, when: ansible_distribution == 'Debian' }
-    - { role: ubuntu, when: ansible_distribution == 'Ubuntu' }
-    - { role: fedora, when: ansible_distribution == 'Fedora' }
+    - { role: ubuntu, emacsnox: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "14.04" }
+    - monit
+
+- hosts: host08
+  tags: default
+  roles:
+    - all
+    - { role: debian, emacsnox: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version == "7.8" }
+    - monit
+
+- hosts: all
+  tags: afsin
+  roles:
     - afsin
 
-- hosts: fail2ban
+- hosts: all:!host10:!host11
   tags: fail2ban
   roles:
     - fail2ban
 
-- hosts: monit
-  tags: monit
-  roles:
-    - monit
-
-- hosts: postfix
+- hosts: host01:host02
   tags: postfix
   roles:
     - postfix
