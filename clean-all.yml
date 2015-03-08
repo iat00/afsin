@@ -1,0 +1,6 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - command: apt-get -y autoclean
+    - command: apt-get -y autoremove
