@@ -1,6 +1,6 @@
 ---
 # tasks file for roles/monit
-- apt: name=monit state=installed
+- apt: name=monit state=latest
 
 - template: src=monitrc dest=/etc/monit/monitrc owner=root group=root mode=0600
   notify:

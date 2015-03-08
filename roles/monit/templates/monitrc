@@ -229,8 +229,12 @@ set mmonit http://monit:monit@host03.toparlak.de:8888/collector
 ## content of a response from a web server. Up to three pings are sent and 
 ## connection to a port and an application level network check is performed.
 #
-#  check host myserver with address 192.168.1.1
-#    if failed icmp type echo count 3 with timeout 3 seconds then alert
+   check host google-public-dns-a.google.com with address 8.8.8.8
+     if failed icmp type echo count 3 with timeout 3 seconds then alert
+
+   check host google-public-dns-b.google.com with address 8.8.4.4
+     if failed icmp type echo count 3 with timeout 3 seconds then alert
+
 #    if failed port 3306 protocol mysql with timeout 15 seconds then alert
 #    if failed url http://user:password@www.foo.bar:8080/?querystring
 #       and content == 'action="j_security_check"'

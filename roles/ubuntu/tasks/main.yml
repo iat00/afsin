@@ -37,7 +37,7 @@
   notify:
     - update timezone
 
-- name: set dns search string
+- name: set dns-search string
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
   notify: 
-    - restart networking
+    - resolvconf update
