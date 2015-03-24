@@ -3,7 +3,6 @@
   tags: default
   roles:
     - all
-    - monit
 
 - hosts: all:!host08
   tags: default
