@@ -1,0 +1,3 @@
+---
+- name: restart sd-agent
+  command: /etc/init.d/sd-agent restart

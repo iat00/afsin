@@ -1,6 +1,13 @@
 ---
 - name: install apt packages
+  when: ansible_os_family == 'Debian'
   apt: name={{ item }} state=installed
+  with_items:
+    - fail2ban
+
+- name: install apt packages
+  when: ansible_os_family == 'RedHat'
+  yum: name={{ item }} state=installed
   with_items:
     - fail2ban
 

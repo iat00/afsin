@@ -1,0 +1,22 @@
+---
+- apt_key: url=https://www.serverdensity.com/downloads/boxedice-public.key state=present
+  when: ansible_os_family == 'Debian'
+
+- apt_repository: repo='deb http://www.serverdensity.com/downloads/linux/deb all main' state=present update_cache=yes
+  when: ansible_os_family == 'Debian'
+
+- apt: name=sd-agent state=latest
+  when: ansible_os_family == 'Debian'
+
+- shell: rpm --import https://www.serverdensity.com/downloads/boxedice-public.key
+  when: ansible_os_family == 'RedHat'
+
+- copy: src=serverdensity.repo dest=/etc/yum.repos.d/serverdensity.repo
+  when: ansible_os_family == 'RedHat'
+
+- yum: name=sd-agent state=latest
+  when: ansible_os_family == 'RedHat'
+
+- copy: src=config.cfg.d/{{ inventory_hostname }} dest=/etc/sd-agent/config.cfg
+  notify:
+    - restart sd-agent

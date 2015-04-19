@@ -1,5 +1,10 @@
 ---
 - hosts: all
+  tags: sd-agent
+  roles:
+    - sd-agent
+
+- hosts: all
   tags: default
   roles:
     - all
@@ -47,4 +52,9 @@
 - hosts: host04
   tags: nginx-lb
   roles:
-    - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}, {hostname: host07, weight: 1]}
+    - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}, {hostname: host07, weight: 1}]}
+
+- hosts: host03
+  tags: redis-server
+  roles:
+    - redis-server
