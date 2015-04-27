@@ -1,8 +1,8 @@
 ---
-- hosts: all
-  tags: sd-agent
+- hosts: host03
+  tags: apache
   roles:
-    - sd-agent
+    - apache
 
 - hosts: all
   tags: default
