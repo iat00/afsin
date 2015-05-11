@@ -4,6 +4,11 @@
   roles:
     - apache
 
+- hosts: host03
+  tags: dokuwiki
+  roles:
+    - dokuwiki
+
 - hosts: all
   tags: default
   roles:
