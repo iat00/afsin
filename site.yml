@@ -1,48 +1,40 @@
 ---
-- hosts: host03
-  tags: apache
+- hosts: host04
+  tags: docker
   roles:
-    - apache
+    - docker
 
 - hosts: host03
-  tags: dokuwiki
-  roles:
+  tags:
+    - apache
     - dokuwiki
+    - redis-server
+  roles:
+    - apache
+    - dokuwiki
+    - redis-server
 
 - hosts: all
   tags: default
   roles:
     - all
+    - fail2ban
+    - afsin
 
-- hosts: all:!host08
+- hosts: all
   tags: default
   roles:
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "14.04"}
-
-- hosts: host08
-  tags: default
-  roles:
+    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "15.04"}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version == "7.8" }
 
-- hosts: all
-  tags: afsin
-  roles:
-    - afsin
-
-- hosts: host08:host10:host11
-  tags: cem
+- hosts: host08
+  tags: 
+    - cem
+    - sarah
   roles:
     - cem
-
-- hosts: host08
-  tags: sarah
-  roles:
     - sarah
-
-- hosts: all:!host10:!host11
-  tags: fail2ban
-  roles:
-    - fail2ban
 
 - hosts: host01:host02
   tags: postfix
@@ -54,12 +46,7 @@
   roles:
     - {role: nginx}
 
-- hosts: host04
+- hosts: host07
   tags: nginx-lb
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}, {hostname: host07, weight: 1}]}
-
-- hosts: host03
-  tags: redis-server
-  roles:
-    - redis-server

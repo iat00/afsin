@@ -19,3 +19,4 @@ tmp
 *.retry
 .lesshst
 .rnd
+.Xauthority
