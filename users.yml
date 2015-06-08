@@ -1,0 +1,12 @@
+---
+- hosts: host08
+  remote_user: root
+  roles: [cem, sarah]
+
+- hosts: host12
+  remote_user: root
+  roles: [atilla]
+
+- hosts: all
+  remote_user: root
+  roles: [afsin]

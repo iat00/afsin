@@ -1,0 +1,5 @@
+---
+- name: config opsmatic agent token
+  shell: config-opsmatic-agent -token=a12f07fa-5707-47d4-bd1a-a30eaacd2394
+- name: restart opsmatic agent
+  shell: service opsmatic-agent restart

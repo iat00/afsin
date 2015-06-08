@@ -1,0 +1,13 @@
+---
+- apt: name=apt-transport-https state=present
+- apt_repository: repo='deb https://packagecloud.io/opsmatic/public/any/ any main' state=present
+- apt_key: url='https://packagecloud.io/gpg.key' state=present
+- apt: update_cache=yes
+
+- template: src=opsmatic-agent.conf dest=/etc
+  notify:
+    - restart opsmatic agent
+
+- apt: name=opsmatic-agent state=present
+  notify:
+    - config opsmatic agent token

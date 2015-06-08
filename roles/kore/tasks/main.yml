@@ -1,0 +1,2 @@
+---
+- apt: name=libssl-dev state=installed
