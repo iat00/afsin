@@ -1,22 +1,23 @@
 ---
 - hosts: host03
-  tags:  [apache, dokuwiki, redis-server, kore, atom]
-  roles: [apache, dokuwiki, redis-server, kore, atom]
-
-- hosts: all
-  tags:  default
-  roles: [all, fail2ban]
+  tags:  [apache, dokuwiki, redis-server, kore]
+  roles: [apache, dokuwiki, redis-server, kore]
 
 - hosts: all
   tags:  default
   roles:
-    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "14.04"}
-    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "15.04"}
+    - all
+    - fail2ban
+    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version ==  "7.8" }
 
-- hosts: host01:host02:host21:host22
+- hosts: host21:host22
   tags:  [postfix, opsmatic]
   roles: [postfix, opsmatic]
+
+- hosts: host04
+  tags: tugboat
+  roles: [tugboat]
 
 - hosts: host05:host06
   tags:  [nginx]

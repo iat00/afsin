@@ -1,0 +1,10 @@
+---
+- hosts: host01:host02:host21:host22
+  tasks:
+    - fetch: src={{ item }} dest=/home/afsin/ALL
+      with_items:
+        - /etc/postfix/main.cf
+        - /etc/postfix/master.cf
+        - /etc/dovecot/dovecot.conf
+        - /etc/default/spamassassin
+        - /etc/spamassassin/local.cf
