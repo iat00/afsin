@@ -4,4 +4,3 @@
 - apt: name=build-essential state=present
 
 - gem: name=tugboat state=present
-- gem: name=system_timer state=present
