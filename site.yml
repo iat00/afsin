@@ -1,8 +1,4 @@
 ---
-- hosts: host03
-  tags:  [apache, dokuwiki, redis-server, kore]
-  roles: [apache, dokuwiki, redis-server, kore]
-
 - hosts: all
   tags:  default
   roles:
@@ -10,14 +6,23 @@
     - fail2ban
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version ==  "7.8" }
+    - afsin
+
+- hosts: host01
+  tags: docker
+  roles: [docker]
+
+- hosts: host04
+  tags: rancher
+  roles: [docker, rancher]
+  
+- hosts: host03
+  tags:  [apache, dokuwiki, redis-server, kore]
+  roles: [apache, dokuwiki, redis-server, kore]
 
 - hosts: host21:host22
   tags:  [postfix, opsmatic]
   roles: [postfix, opsmatic]
-
-- hosts: host04
-  tags: tugboat
-  roles: [tugboat]
 
 - hosts: host05:host06
   tags:  [nginx]
@@ -27,3 +32,11 @@
   tags:  [nginx-lb]
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}]}
+
+- hosts: host08
+  tags: users
+  roles: [cem, sarah]
+
+- hosts: host12
+  tags: users
+  roles: [atilla]
