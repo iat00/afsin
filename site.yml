@@ -21,8 +21,8 @@
   roles: [apache, dokuwiki, redis-server, kore]
 
 - hosts: host21:host22
-  tags:  [postfix, opsmatic]
-  roles: [postfix, opsmatic]
+  tags:  [postfix]
+  roles: [postfix]
 
 - hosts: host05:host06
   tags:  [nginx]
@@ -40,3 +40,7 @@
 - hosts: host12
   tags: users
   roles: [atilla]
+
+- hosts: host24
+  tags: teamspeak
+  roles: [atilla, afsin, teamspeak]
