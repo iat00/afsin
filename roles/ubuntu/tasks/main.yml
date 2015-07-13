@@ -35,9 +35,9 @@
   with_items:
     - etc/timezone
   notify:
-    - update timezone
+    - update ubuntu timezone
 
 - name: set dns-search string
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
   notify: 
-    - resolvconf update
+    - update ubuntu resolvconf

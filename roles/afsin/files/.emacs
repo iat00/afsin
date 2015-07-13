@@ -7,8 +7,3 @@
 
 (add-to-list 'auto-mode-alist '("\\.d\\'" . d-mode))
 (autoload 'd-mode "d-mode" "Major mode for D programs" t)
-
-;(add-hook 'yaml-mode-hook
-;	  '(lambda ()
-;	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-

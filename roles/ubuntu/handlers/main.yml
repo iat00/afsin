@@ -1,6 +1,6 @@
 ---
-- name: update timezone
+- name: update ubuntu timezone
   command: dpkg-reconfigure --frontend noninteractive tzdata
 
-- name: resolvconf update
+- name: update ubuntu resolvconf
   shell: resolvconf -u

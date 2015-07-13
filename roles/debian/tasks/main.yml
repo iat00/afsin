@@ -22,4 +22,11 @@
 - name: set dns-search string
   lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
   notify:
-    - resolvconf update
+    - update debian resolvconf
+
+- name: set timezone
+  copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/timezone
+  notify:
+    - update debian timezone

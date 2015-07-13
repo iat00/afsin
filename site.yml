@@ -8,19 +8,23 @@
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version ==  "7.8" }
     - afsin
 
-- hosts: host01:host09:host04
-  tags: docker
-  roles: [docker]
-
-- hosts: host04
+- hosts: rancher-agent
   tags: rancher
-  roles: [rancher]
-  
-- hosts: host03
-  tags:  [apache, dokuwiki, redis-server, kore]
-  roles: [apache, dokuwiki, redis-server, kore]
+  roles: [rancher-agent]
 
-- hosts: host21:host22
+- hosts: rancher-server
+  tags: rancher
+  roles: [rancher-server]
+  
+- hosts: hyper
+  tags: hyper
+  roles: [hyper]
+
+- hosts: host03:host33
+  tags:  [apache, dokuwiki, redis-server]
+  roles: [apache, dokuwiki, redis-server]
+
+- hosts: postfix
   tags:  [postfix]
   roles: [postfix]
 
@@ -33,7 +37,7 @@
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}]}
 
-- hosts: host08
+- hosts: host08:host38
   tags: users
   roles: [cem, sarah]
 
@@ -41,6 +45,6 @@
   tags: users
   roles: [atilla]
 
-- hosts: host24
+- hosts: teamspeak
   tags: teamspeak
-  roles: [atilla, afsin, teamspeak]
+  roles: [atilla, teamspeak]
