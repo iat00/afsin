@@ -19,11 +19,11 @@
   tags: hyper
   roles: [hyper]
 
-- hosts: host03:host33
+- hosts: host03
   tags:  [apache, dokuwiki, redis-server]
   roles: [apache, dokuwiki, redis-server]
 
-- hosts: postfix
+- hosts: host21:host22
   tags:  [postfix]
   roles: [postfix]
 
@@ -36,19 +36,11 @@
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}]}
 
-- hosts: teamspeak
-  tags: teamspeak
-  roles: [atilla, teamspeak]
-
 - hosts: all
   tags: users
   roles:
     - afsin
 
-- hosts: host08:host38
+- hosts: host08
   tags: users
   roles: [cem, sarah]
-
-- hosts: host12
-  tags: users
-  roles: [atilla]
