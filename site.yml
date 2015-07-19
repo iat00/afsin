@@ -20,8 +20,8 @@
   roles: [hyper]
 
 - hosts: host03
-  tags:  [apache, dokuwiki, redis-server]
-  roles: [apache, dokuwiki, redis-server]
+  tags:  [apache, dokuwiki, redis-server, go]
+  roles: [apache, dokuwiki, redis-server, go]
 
 - hosts: host21:host22
   tags:  [postfix]
