@@ -1,0 +1,3 @@
+---
+- name: ansible repo
+  apt_repository: repo=ppa:ansible/ansible
