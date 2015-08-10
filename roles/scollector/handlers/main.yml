@@ -1,0 +1,3 @@
+---
+- name: start scollector
+  shell: nohup /tmp/scollector -h host01.toparlak.de:8070 &

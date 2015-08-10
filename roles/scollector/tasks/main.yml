@@ -1,0 +1,4 @@
+---
+- copy: src=scollector dest=/tmp/scollector mode=0755
+  notify:
+    - start scollector

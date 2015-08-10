@@ -1,4 +1,6 @@
 ---
+- apt: update_cache=yes cache_valid_time=86400
+
 - name: install apt packages
   apt: name={{ item }} state=installed
   with_items:
@@ -8,6 +10,7 @@
     - zsh
     - mc
     - mailutils
+    - fish
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed
