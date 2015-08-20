@@ -15,7 +15,6 @@
 .zhistory
 .zsh_history
 .zshrc*
-.ssh
 tmp
 *.retry
 .lesshst
