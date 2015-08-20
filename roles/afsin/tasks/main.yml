@@ -15,15 +15,15 @@
         group=afsin
         mode=0700
 
-- copy: src={{ item }} owner=afsin group=afsin dest=/home/afsin/{{ item }}
+- copy: src={{ item }} owner=afsin group=afsin dest=/home/afsin/.{{ item }}
   with_items:
-    - .ssh/authorized_keys
-    - .ssh/config
-    - .emacs
-    - .tmux.conf
-    - .gitignore
-    - .gitconfig
-    - .screenrc
+    - ssh/authorized_keys
+    - ssh/config
+    - emacs
+    - tmux.conf
+    - gitignore
+    - gitconfig
+    - screenrc
 
 # the following private key is secured with a passphrase
 #
