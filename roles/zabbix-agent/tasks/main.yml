@@ -1,4 +1,10 @@
 ---
+- apt_repository: repo='deb http://repo.zabbix.com/zabbix/2.2/debian/ wheezy main' state=present
+  when: ansible_distribution == "Debian"
+
+- apt_key: url='http://repo.zabbix.com/zabbix-official-repo.key' state=present
+  when: ansible_distribution == "Debian"
+
 - name: install apt packages
   apt: name={{ item }} state=installed update_cache=yes
   with_items:
