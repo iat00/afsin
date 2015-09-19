@@ -11,6 +11,7 @@
     - mc
     - mailutils
     - fish
+    - salt-minion
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed

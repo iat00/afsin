@@ -7,55 +7,14 @@
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version ==  "7.8" }
 
-- hosts: host50
-  tags: gocd
+- hosts: all
+  tags: users
   roles:
-    - gocd-server
+    - afsin
 
-- hosts: host51
-  tags: gocd
-  roles:
-    - gocd-agent
-
-- hosts: host01
-  tags: zabbix
-  roles:
-    - zabbix-server
-
-- hosts: host03:host02:host08
-  tags: zabbix
-  roles:
-    - { role: zabbix-agent, zabbix_server: host01.toparlak.de }
-
-- hosts: host10
-  tags: tower
-  roles:
-    - tower
-
-- hosts: host01
-  tags: docker
-  roles:
-    - docker
-
-- hosts: bosun
-  tags: bosun
-  roles: [bosun]
-
-- hosts: scollector
-  tags: scollector
-  roles: [scollector]
-
-- hosts: rancher-agent
-  tags: rancher
-  roles: [rancher-agent]
-
-- hosts: rancher-server
-  tags: rancher
-  roles: [rancher-server]
-  
-- hosts: hyper
-  tags: hyper
-  roles: [hyper]
+- hosts: host08
+  tags: users
+  roles: [cem, sarah]
 
 - hosts: host03
   tags:  [apache, dokuwiki, redis-server, go]
@@ -73,12 +32,3 @@
   tags:  [nginx-lb]
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}]}
-
-- hosts: all
-  tags: users
-  roles:
-    - afsin
-
-- hosts: host08
-  tags: users
-  roles: [cem, sarah]
