@@ -1,0 +1,10 @@
+---
+- hosts: host99
+  tags: gocd
+  roles:
+    - gocd-server
+
+- hosts: host98
+  tags: gocd-agent
+  roles:
+    - gocd-agent
