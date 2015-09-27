@@ -1,0 +1,9 @@
+---
+- hosts: host05:host06
+  tags:  [nginx]
+  roles: [nginx]
+
+- hosts: host07
+  tags:  [nginx-lb]
+  roles:
+    - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: host05, weight: 1}, {hostname: host06, weight: 1}]}
