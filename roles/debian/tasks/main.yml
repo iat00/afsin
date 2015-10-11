@@ -11,12 +11,13 @@
     - mc
     - mailutils
     - fish
-    - salt-minion
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed
   with_items:
     - yaml-mode
+
+- apt: name=salt-minion state=absent
 
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}

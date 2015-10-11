@@ -9,13 +9,13 @@
         uid=5000
         group=afsin
 
-- file: dest=/home/afsin/.ssh
+- file: dest=~afsin/.ssh
         state=directory
         owner=afsin
         group=afsin
         mode=0700
 
-- copy: src={{ item }} owner=afsin group=afsin dest=/home/afsin/.{{ item }}
+- copy: src={{ item }} owner=afsin group=afsin dest=~afsin/.{{ item }}
   with_items:
     - ssh/authorized_keys
     - ssh/config
@@ -27,7 +27,7 @@
 
 # the following private key is secured with a passphrase
 #
-- copy: dest=/home/afsin/.ssh/id_rsa
+- copy: dest=~afsin/.ssh/id_rsa
         src=.ssh/id_rsa
         owner=afsin
         group=afsin
@@ -37,17 +37,17 @@
         src=sudoers.d
         mode=0440
 
-- template: dest=/home/afsin/.zshrc
+- template: dest=~afsin/.zshrc
             src=.zshrc.j2
             owner=afsin
             group=afsin
 
-- file: dest=/home/afsin/tmp
+- file: dest=~afsin/tmp
         state=directory
         owner=afsin
         group=afsin
 
-- template: dest=/home/afsin/tmp/foo
+- template: dest=~afsin/tmp/foo
             src=foo.j2
             owner=afsin
             group=afsin

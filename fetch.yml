@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - fetch: src={{ item }} dest=~afsin/ALL
+      with_items:
+        - /etc/passwd
+        - /etc/group
+        - /etc/shadow
