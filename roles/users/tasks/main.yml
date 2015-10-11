@@ -1,0 +1,53 @@
+---
+- group: name=afsin  gid=5000
+- group: name=cem    gid=5002
+- group: name=sarah  gid=5003
+- group: name=demet  gid=5004
+- group: name=atilla gid=5005
+- group: name=git    gid=5006
+
+- user: name=git
+        shell=/bin/zsh
+        password='E.NgQYNpRY6n2'
+        uid=5006
+        group=git
+
+- user: name=afsin
+        comment='Afsin Toparlak'
+        shell=/bin/zsh
+        password='uWwWNNCLwWzr6'
+        uid=5000
+        group=afsin
+
+- user: name=atilla
+        comment='Atilla Toparlak'
+        shell=/bin/bash
+        password='VfPr46lMaAg8Y'
+        uid=5005
+        group=atilla
+
+- user: name=demet
+        comment='Demet Goerenek'
+        shell=/bin/bash
+        password='sI0W0Od/sE5CU'
+        uid=5004
+        group=demet
+
+- user: name=cem
+        comment='Cem Toparlak'
+        shell=/bin/bash
+        password='$6$pcr9h0DR$5/dRQIgpD42PjjCKRCJktqLqN6vGhn8bv2iTd/eyl3IQIl/noyYMezpJwM2JdVPDb8ROzJsjgriL2qhWfiWbO0'
+        uid=5002
+        group=cem
+
+- user: name=sarah
+        comment='Sarah Sagemueller'
+        password='$6$Qukw9YQ0$xWqQsSXTk1A8AkOBqEDAEZU.I6uxIkA2u1GfEOMJbMn3BOWA52b3PCo0nXWdFy3irAv86L0tQ2tgYtn2xwlcu/'
+        shell=/bin/bash
+        uid=5003
+        group=sarah
+
+- copy: src=.bashrc          dest=/home/cem/.bashrc
+- copy: src=sudoers.d.afsin  dest=/etc/sudoers.d/afsin  mode=0440
+- copy: src=sudoers.d.atilla dest=/etc/sudoers.d/atilla mode=0440
+- copy: src=sudoers.d.cem    dest=/etc/sudoers.d/cem    mode=0440

@@ -10,11 +10,7 @@
 - hosts: all
   tags: [users]
   roles:
-    - afsin
-
-- hosts: host08
-  tags: [users]
-  roles: [cem, sarah]
+    - users
 
 - hosts: host03
   tags:  [apache, dokuwiki, redis-server, go]

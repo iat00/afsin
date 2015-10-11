@@ -1,19 +1,6 @@
 ---
-- group: name=afsin
-         gid=5000
-
-- user: name=afsin
-        comment='Afsin Toparlak'
-        shell=/bin/zsh
-        password='$1$A.OAhdOI$sIONMKC.56TPVaDRPln8G1'
-        uid=5000
-        group=afsin
-
-- file: dest=~afsin/.ssh
-        state=directory
-        owner=afsin
-        group=afsin
-        mode=0700
+- file: dest=~afsin/.ssh state=directory mode=0700
+- file: dest=~afsin/tmp  state=directory
 
 - copy: src={{ item }} owner=afsin group=afsin dest=~afsin/.{{ item }}
   with_items:
@@ -25,29 +12,7 @@
     - gitconfig
     - screenrc
 
-# the following private key is secured with a passphrase
-#
-- copy: dest=~afsin/.ssh/id_rsa
-        src=.ssh/id_rsa
-        owner=afsin
-        group=afsin
-        mode=600
+- copy: dest=~afsin/.ssh/id_rsa src=.ssh/id_rsa mode=600
 
-- copy: dest=/etc/sudoers.d/afsin
-        src=sudoers.d
-        mode=0440
-
-- template: dest=~afsin/.zshrc
-            src=.zshrc.j2
-            owner=afsin
-            group=afsin
-
-- file: dest=~afsin/tmp
-        state=directory
-        owner=afsin
-        group=afsin
-
-- template: dest=~afsin/tmp/foo
-            src=foo.j2
-            owner=afsin
-            group=afsin
+- template: dest=~afsin/.zshrc src=.zshrc.j2
+- template: dest=~afsin/tmp/foo src=foo.j2
