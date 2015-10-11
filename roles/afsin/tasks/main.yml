@@ -1,6 +1,6 @@
 ---
-- file: dest=~afsin/.ssh state=directory mode=0700
 - file: dest=~afsin/tmp  state=directory
+- file: dest=~afsin/.ssh state=directory mode=0700
 
 - copy: src={{ item }} owner=afsin group=afsin dest=~afsin/.{{ item }}
   with_items:
@@ -12,7 +12,6 @@
     - gitconfig
     - screenrc
 
-- copy: dest=~afsin/.ssh/id_rsa src=.ssh/id_rsa mode=600
-
-- template: dest=~afsin/.zshrc src=.zshrc.j2
-- template: dest=~afsin/tmp/foo src=foo.j2
+- copy: src=ssh/id_rsa dest=~afsin/.ssh/id_rsa  mode=600
+- template: src=zshrc  dest=~afsin/.zshrc
+- template: src=foo    dest=~afsin/tmp/foo

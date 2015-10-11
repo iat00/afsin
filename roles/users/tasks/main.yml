@@ -47,7 +47,8 @@
         uid=5003
         group=sarah
 
-- copy: src=.bashrc          dest=/home/cem/.bashrc
+- copy: src=.bashrc.cem      dest=/home/cem/.bashrc
+
 - copy: src=sudoers.d.afsin  dest=/etc/sudoers.d/afsin  mode=0440
 - copy: src=sudoers.d.atilla dest=/etc/sudoers.d/atilla mode=0440
 - copy: src=sudoers.d.cem    dest=/etc/sudoers.d/cem    mode=0440
