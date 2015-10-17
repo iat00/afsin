@@ -42,3 +42,4 @@ inet_interfaces = all
 smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_recipient_domain, reject_unauth_pipelining, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination, check_policy_service unix:private/policy-spf
 inet_protocols = ipv4
 policy-spf_time_limit = 3600s
+message_size_limit = 102400000

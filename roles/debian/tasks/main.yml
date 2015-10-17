@@ -11,6 +11,7 @@
     - mc
     - mailutils
     - fish
+    - ccze
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed
