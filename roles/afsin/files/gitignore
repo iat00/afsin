@@ -8,6 +8,7 @@
 .emacs
 .gitconfig
 .gitignore
+.gnupg
 .lesshst
 .local
 .mysql_history
@@ -16,6 +17,7 @@
 .rnd
 .screenrc
 .ssh
+.swipl-dir-history
 .tmux.conf
 .zcompdump
 .zhistory

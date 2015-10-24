@@ -5,16 +5,15 @@
     - all
     - fail2ban
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
-    - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian' and ansible_distribution_version ==  "7.8" }
+    - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}
 
 - hosts: all
   tags: [users]
-  roles:
-    - users
+  roles: [users]
 
 - hosts: host03
-  tags:  [apache, dokuwiki, redis-server, go]
-  roles: [apache, dokuwiki, redis-server, go]
+  tags:  [apache, dokuwiki, redis-server, go, swi-prolog, gitlab-runner]
+  roles: [apache, dokuwiki, redis-server, go, swi-prolog, gitlab-runner]
 
 - hosts: host21:host22
   tags:  [postfix]
