@@ -1,0 +1,8 @@
+job91:
+  script: ls -al
+job92:
+  script: pwd
+job93:
+  script: id -a
+job94:
+  script: ansible all -m ping
