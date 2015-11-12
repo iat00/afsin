@@ -1,0 +1,12 @@
+[user]
+	name   = Afsin Toparlak
+	email  = afsin@toparlak.de
+[credential]
+	helper = cache --timeout=3600
+[color]
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /home/afsin/.gitignore
+[push]
+	default = simple
