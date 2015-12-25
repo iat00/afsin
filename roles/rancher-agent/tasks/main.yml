@@ -1,0 +1,2 @@
+---
+- docker: privileged=yes volumes=/var/run/docker.sock:/var/run/docker.sock image=rancher/agent:v0.7.9 command=http://host04.toparlak.de:8080/v1/scripts/757C9C935F535E873EF4:1436119200000:lBgsW9l9Z8NGgyZi8KSRPcnUxE

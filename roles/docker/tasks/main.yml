@@ -1,0 +1,10 @@
+---
+- apt_repository: repo='deb https://get.docker.com/ubuntu docker main' state=present
+- apt_key: id=36A1D7869245C8950F966E92D8576A8BA88D21E9 keyserver=p80.pool.sks-keyservers.net
+
+- apt: update_cache=yes cache_valid_time=86400 upgrade=dist
+
+- apt: name=lxc-docker state=installed force=yes
+- apt: name=python-pip state=installed
+
+- pip: name=docker-py state=present

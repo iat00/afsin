@@ -1,0 +1,4 @@
+shell -$SHELL
+escape "^Ww"
+term xterm
+setenv TERM xterm

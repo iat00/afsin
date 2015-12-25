@@ -1,0 +1,3 @@
+---
+- apt: name=apache2 state=present
+- apt: name=libapache2-mod-php5 state=present

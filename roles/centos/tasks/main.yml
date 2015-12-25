@@ -1,0 +1,16 @@
+---
+- name: install yum packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - epel-release
+    - emacs-nox
+    - facter
+    - htop
+    - tmux
+    - zsh
+    - lynx
+    - libvirt
+    - libvirt-python
+    - libxml2-python
+    - qemu-kvm
+    - lsof

@@ -1,0 +1,10 @@
+---
+- group: name=atilla
+         gid=5001
+
+- user: name=atilla
+        comment='Atilla Toparlak'
+        shell=/bin/zsh
+        password='$6$5M.WbJUF$B/.LEG/4HwOPXXdv0WxlRo8RmTJV7SxDs8nOmwdRdBZ4Y8fJWkBn7X8.RoDnVh/bmiUaiq0vcy/w9cLaoVGMJ.'
+        uid=5001
+        group=atilla

@@ -1,0 +1,18 @@
+---
+- file: dest=~afsin/tmp  state=directory
+- file: dest=~afsin/.ssh state=directory mode=0700
+
+- copy: src={{ item }} owner=afsin group=afsin dest=~afsin/{{ item }}
+  with_items:
+    - .ssh/authorized_keys
+    - .ssh/config
+    - .emacs
+    - .tmux.conf
+    - .gitignore
+    - .gitconfig
+    - .screenrc
+    - .zshrc
+
+- copy: src=.ssh/id_rsa dest=~afsin/.ssh/id_rsa mode=600
+
+- template: src=foo    dest=~afsin/tmp/foo

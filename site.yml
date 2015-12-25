@@ -1,0 +1,24 @@
+---
+- hosts: all
+  tags: [default]
+  roles:
+    - all
+    - fail2ban
+    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
+    - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}
+
+- hosts: all
+  tags: [users]
+  roles: [users]
+
+- hosts: host03
+  tags:  [apache, dokuwiki, redis-server, go, swi-prolog]
+  roles: [apache, dokuwiki, redis-server, go, swi-prolog]
+
+- hosts: host21:host22
+  tags:  [postfix]
+  roles: [postfix]
+
+- hosts: host60
+  tags: [fishtest]
+  roles: [fishtest]

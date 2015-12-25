@@ -1,0 +1,6 @@
+---
+- name: update debian resolvconf
+  shell: resolvconf -u
+
+- name: update debian timezone
+  command: dpkg-reconfigure --frontend noninteractive tzdata

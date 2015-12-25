@@ -1,0 +1,20 @@
+---
+- name: install apt packages
+  apt: name={{ item }} state=installed
+  with_items:
+    - fail2ban
+  when: ansible_os_family == 'Debian'
+
+- name: install yum packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - fail2ban
+  when: ansible_os_family == 'RedHat'
+
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
+  notify:
+    - restart fail2ban
+    
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
+  notify:
+    - restart fail2ban

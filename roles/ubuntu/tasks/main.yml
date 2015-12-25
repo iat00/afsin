@@ -1,0 +1,39 @@
+---
+- apt: update_cache=yes cache_valid_time=86400
+
+- name: install apt packages
+  apt: name={{ item }} state=installed
+  with_items:
+    - facter
+    - htop
+    - tmux
+    - zsh
+    - mc
+    - mailutils
+    - fish
+    - ccze
+    - libmodern-perl-perl
+
+- apt: name={{ emacs }} state=installed
+- apt: name={{ item }} state=installed
+  with_items:
+    - yaml-mode
+
+- apt: name=salt-minion state=absent
+
+- name: disable ipv6
+  copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/sysctl.d/disable-ipv6.conf
+
+- name: set dns-search string
+  lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
+  notify:
+    - update ubuntu resolvconf
+
+- name: set timezone
+  copy: src={{ item }} dest=/{{ item }}
+  with_items:
+    - etc/timezone
+  notify:
+    - update ubuntu timezone

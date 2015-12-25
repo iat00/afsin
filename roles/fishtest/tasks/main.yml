@@ -1,0 +1,10 @@
+---
+- apt: update_cache=yes cache_valid_time=86400 upgrade=dist
+
+- apt: name=python
+- apt: name=git
+- apt: name=build-essential
+- apt: name=libqtcore4
+
+- user: name=fishtest password=ZyMwtbQj88M8E createhome=yes
+- git: dest=/home/fishtest repo=https://github.com/glinscott/fishtest.git

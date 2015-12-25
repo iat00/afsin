@@ -1,0 +1,5 @@
+---
+- apt_repository: repo="deb http://dl.bintray.com/gocd/gocd-deb/ /"
+- apt_key: url="https://bintray.com/user/downloadSubjectPublicKey?username=gocd"
+- apt: update_cache=yes
+- apt: name=go-server state=present

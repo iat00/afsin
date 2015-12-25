@@ -1,0 +1,49 @@
+---
+    - apt: name={{ item }} state=installed
+      with_items:
+        - postfix
+        - postfix-policyd-spf-python
+        - spamassassin
+        - spamc
+        - dovecot-core
+        - dovecot-imapd
+        - dovecot-pop3d
+        - dovecot-managesieved
+        - dovecot-sieve
+
+    - group: name=spamd
+
+    - user: name=spamd home=/var/log/spamassassin shell=/bin/false group=spamd
+
+    - copy: src=spamassassin dest=/etc/default/spamassassin
+    - copy: src=local.cf dest=/etc/spamassassin/local.cf
+
+    - service: name=spamassassin state=started
+      notify:
+        - restart postfix
+
+    - copy: src=virtual dest=/etc/postfix/virtual
+      notify:
+        - create virtual.db
+        - restart postfix
+
+    - name: create virtual.db
+      shell: postmap /etc/postfix/virtual
+             creates=/etc/postfix/virtual.db
+      notify:
+        - restart postfix
+
+    - template: src=mailname.j2 dest=/etc/mailname mode=0644
+      notify:
+        - create virtual.db
+        - restart postfix
+
+    - template: src=main.cf.j2 dest=/etc/postfix/main.cf
+      notify:
+        - restart postfix
+
+    - copy: src=dovecot.conf dest=/etc/dovecot/dovecot.conf
+
+    - copy: src=master.cf    dest=/etc/postfix/master.cf
+      notify:
+        - restart postfix

@@ -1,0 +1,3 @@
+---
+var2: 2 from roles/afsin/vars/main.yml
+var3: 3 from roles/afsin/vars/main.yml

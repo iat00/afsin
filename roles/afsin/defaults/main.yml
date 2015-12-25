@@ -1,0 +1,4 @@
+---
+var4: 4 from roles/afsin/defaults/main.yml
+var2: 2 from roles/afsin/defaults/main.yml
+var5: 5 from roles/afsin/defaults/main.yml

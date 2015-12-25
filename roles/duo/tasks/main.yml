@@ -1,0 +1,23 @@
+---
+    - name: Duo Repo
+      apt_repository: repo='deb http://pkg.duosecurity.com/Ubuntu precise main' state=present
+
+    - name: Add Duo Apt Key
+      apt_key: url=http://pkg.duosecurity.com/APT-GPG-KEY-DUO
+
+    - name: Install Duo Unix
+      apt: name=duo-unix state=installed
+
+    - name: Duo integration key
+      lineinfile: dest=/etc/duo/login_duo.conf regexp='^ikey = $'     line='ikey = DII88OWW8WTCG8KH0YVA' backrefs=yes
+
+    - name: Duo Secret key
+      lineinfile: dest=/etc/duo/login_duo.conf regexp='^skey = $'     line='skey = bAEkz3Jfh6SBf9J4GMQFhYeybrSbN46avX85fGAy' backrefs=yes
+
+    - name: Duo API host
+      lineinfile: dest=/etc/duo/login_duo.conf regexp='^host = $'     line='host = api-c2c69d5c.duosecurity.com' backrefs=yes
+
+    - name: Enable duo security for remote logins
+      lineinfile: dest=/etc/ssh/sshd_config    regexp='^ForceCommand' line="ForceCommand /usr/sbin/login_duo"
+      notify:
+        - restart sshd

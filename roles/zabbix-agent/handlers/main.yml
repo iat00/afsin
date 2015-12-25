@@ -1,0 +1,3 @@
+---
+- name: restart zabbix-agent
+  command: service zabbix-agent restart
