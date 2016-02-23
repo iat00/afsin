@@ -11,10 +11,16 @@
     - fail2ban
   when: ansible_os_family == 'RedHat'
 
-- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime  = 600' line='bantime = 3600' backrefs=yes
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 3600' line='bantime = 86400' backrefs=yes
+  notify:
+    - restart fail2ban
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 600' line='bantime = 86400' backrefs=yes
   notify:
     - restart fail2ban
     
-- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 3600' backrefs=yes
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 3600' line='findtime = 86400' backrefs=yes
+  notify:
+    - restart fail2ban
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^findtime = 600' line='findtime = 86400' backrefs=yes
   notify:
     - restart fail2ban

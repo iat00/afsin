@@ -2,8 +2,17 @@
 - hosts: all
   remote_user: root
   tasks:
-    - apt: update_cache=yes cache_valid_time=86400 upgrade=dist
-    - script: scripts/dpkg-p.sh
-    - command: apt-get -y autoclean
-    - command: apt-get -y autoremove
-    - command: apt-get clean
+    - name: safe-upgrade
+      apt: update_cache=yes cache_valid_time=86400 upgrade=yes
+
+    - name: purge
+      script: scripts/dpkg-p.sh
+
+    - name: autoclean
+      command: apt-get -y autoclean
+
+    - name: autoremove
+      command: apt-get -y autoremove
+
+    - name: clean
+      command: apt-get clean

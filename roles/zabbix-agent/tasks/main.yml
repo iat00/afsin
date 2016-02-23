@@ -24,3 +24,8 @@
   lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=.*$' line='Hostname={{ inventory_hostname }}' backrefs=yes
   notify:
     - restart zabbix-agent
+
+- name: customize /etc/zabbix/zabbix_agentd.conf
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^# ListenIP=0.0.0.0$' line='ListenIP=0.0.0.0' backrefs=yes
+  notify:
+    - restart zabbix-agent

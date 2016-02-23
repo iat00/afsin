@@ -2,7 +2,7 @@ root:x:0:
 daemon:x:1:
 bin:x:2:
 sys:x:3:
-adm:x:4:opsdash
+adm:x:4:
 tty:x:5:
 disk:x:6:
 lp:x:7:
@@ -51,8 +51,8 @@ cem:x:5002:
 sarah:x:5003:
 pascal:x:1002:
 afsin:x:5000:
-munin:x:111:
-sd-agent:x:112:
 zabbix:x:113:
 guardrail:x:999:
-opsdash:x:998:
+demet:x:5004:
+atilla:x:5005:
+git:x:5006:

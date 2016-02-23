@@ -65,3 +65,8 @@
     - restart apache2
 
 - apt: name=zabbix-agent state=installed
+
+- name: customize /etc/zabbix/zabbix_server.conf
+  lineinfile: dest=/etc/zabbix/zabbix_server.conf regexp='^# ListenIP=0.0.0.0$' line='ListenIP=0.0.0.0' backrefs=yes
+  notify:
+    - restart zabbix-server

@@ -2,7 +2,7 @@ root:x:0:
 daemon:x:1:
 bin:x:2:
 sys:x:3:
-adm:x:4:syslog,opsdash
+adm:x:4:syslog
 tty:x:5:
 disk:x:6:
 lp:x:7:
@@ -59,4 +59,9 @@ dovenull:x:118:
 policyd-spf:x:119:
 debian-spamd:x:120:
 spamd:x:5001:
-opsdash:x:999:
+sarah:x:5003:
+cem:x:5002:
+atilla:x:5005:
+demet:x:5004:
+git:x:5006:
+zabbix:x:121:
