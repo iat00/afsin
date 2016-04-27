@@ -18,7 +18,3 @@
 - hosts: host21:host22
   tags:  [postfix]
   roles: [postfix]
-
-- hosts: host60
-  tags: [fishtest]
-  roles: [fishtest]

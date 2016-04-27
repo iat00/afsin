@@ -1,7 +1,9 @@
 ---
 - hosts: all
-  remote_user: root
   tasks:
+    - name: install aptitude
+      apt: name=aptitude state=present
+
     - name: safe-upgrade
       apt: update_cache=yes cache_valid_time=86400 upgrade=yes
 

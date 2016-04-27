@@ -1,6 +1,5 @@
 ---
 - hosts: host03:host08:host22:host21
-  remote_user: root
   tags: swap
   tasks:
     - shell: fallocate -l 1073741824 /swap01

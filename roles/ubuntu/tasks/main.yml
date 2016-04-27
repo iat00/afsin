@@ -13,6 +13,7 @@
     - fish
     - ccze
     - libmodern-perl-perl
+    - resolvconf
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed

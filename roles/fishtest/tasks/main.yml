@@ -6,5 +6,5 @@
 - apt: name=build-essential
 - apt: name=libqtcore4
 
-- user: name=fishtest password=ZyMwtbQj88M8E createhome=yes
+- user: name=fishtest password=ZyMwtbQj88M8E createhome=no
 - git: dest=/home/fishtest repo=https://github.com/glinscott/fishtest.git
