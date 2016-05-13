@@ -1,0 +1,7 @@
+---
+- hosts: host03
+  tasks:
+    - name: python-map
+      apt: name=python-nmap
+    - apt: name=ftpd
+    - apt: name=python-socketio-client

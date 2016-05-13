@@ -1,0 +1,8 @@
+---
+- hosts: host03
+  tasks:
+    - apt: name=python-pexpect
+    - expect: 
+        command: passwd dummy
+        responses:
+          (?!)password: "pass1234"

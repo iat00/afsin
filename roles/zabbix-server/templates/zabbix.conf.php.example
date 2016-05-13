@@ -5,7 +5,7 @@ global $DB;
 // Valid types are MYSQL, SQLITE3 or POSTGRESQL
 $DB["TYPE"]			= 'MYSQL';
 $DB["SERVER"]			= 'localhost';
-$DB["PORT"]			= '0';
+$DB["PORT"]			= '3306';
 
 // SQLITE3 use full path to file/database: $DB["DATABASE"] = '/var/lib/zabbix/zabbix.sqlite3';
 $DB["DATABASE"]			= 'zabbix';

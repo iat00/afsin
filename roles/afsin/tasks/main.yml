@@ -1,6 +1,6 @@
 ---
 - file: dest=~afsin/tmp  state=directory
-- file: dest=~afsin/.ssh state=directory mode=0700
+- file: dest=~afsin/.ssh state=directory mode=0700 owner=afsin group=afsin
 
 - copy: src={{ item }} owner=afsin group=afsin dest=~afsin/{{ item }}
   with_items:

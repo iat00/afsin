@@ -11,16 +11,21 @@
     - zabbix-agent
 
 - name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Server=127.0.0.1$' line='Server={{ zabbix_server }}' backrefs=yes
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Server=.*$' line='Server=127.0.0.1,{{ zabbix_server }}' backrefs=yes
   notify:
     - restart zabbix-agent
 
 - name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^ServerActive=127.0.0.1$' line='ServerActive={{ zabbix_server }}' backrefs=yes
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^ServerActive=.*$' line='ServerActive=127.0.0.1,{{ zabbix_server }}' backrefs=yes
   notify:
     - restart zabbix-agent
 
 - name: customize /etc/zabbix/zabbix_agentd.conf
-  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=Zabbix server$' line='Hostname={{ inventory_hostname }}' backrefs=yes
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^Hostname=.*$' line='Hostname={{ inventory_hostname }}' backrefs=yes
+  notify:
+    - restart zabbix-agent
+
+- name: customize /etc/zabbix/zabbix_agentd.conf
+  lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp='^# ListenIP=0.0.0.0$' line='ListenIP=0.0.0.0' backrefs=yes
   notify:
     - restart zabbix-agent

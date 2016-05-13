@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - copy: src={{ item }} dest=/tmp/conf.cfg
+      ignore_errors: true
+      with_first_found:
+        - files:
+            - "{{ inventory_hostname }}.cfg"
+            - default.cfg
+          paths:
+            - /home/afsin
+            - /tmp

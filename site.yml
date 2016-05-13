@@ -12,13 +12,9 @@
   roles: [users]
 
 - hosts: host03
-  tags:  [apache, dokuwiki, redis-server, go, swi-prolog, gitlab-runner]
-  roles: [apache, dokuwiki, redis-server, go, swi-prolog, gitlab-runner]
+  tags:  [apache, dokuwiki, redis-server, swi-prolog]
+  roles: [apache, dokuwiki, redis-server, swi-prolog]
 
 - hosts: host21:host22
   tags:  [postfix]
   roles: [postfix]
-
-- hosts: host60
-  tags: [fishtest]
-  roles: [fishtest]

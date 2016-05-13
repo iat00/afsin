@@ -1,10 +1,10 @@
 ---
-- hosts: host01
+- hosts: host03
   tags: zabbix
   roles:
     - zabbix-server
 
-- hosts: host03:host08
+- hosts: host03:host21:host22:host08
   tags: zabbix
   roles:
-    - { role: zabbix-agent, zabbix_server: host01.toparlak.de }
+    - { role: zabbix-agent, zabbix_server: host03 }
