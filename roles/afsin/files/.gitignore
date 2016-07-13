@@ -3,6 +3,7 @@
 .Xauthority
 .ansible
 .ansible_async
+.aptitude
 .cache
 .config
 .gnupg
@@ -10,6 +11,7 @@
 .local
 .mysql_history
 .pip
+.python_history
 .rnd
 .swipl-dir-history
 .zcompdump
