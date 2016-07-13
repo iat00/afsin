@@ -2,7 +2,6 @@
 - hosts: all
   tags: [default]
   roles:
-    - all
     - fail2ban
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}

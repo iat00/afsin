@@ -26,11 +26,6 @@
   with_items:
     - etc/sysctl.d/disable-ipv6.conf
 
-- name: set dns-search string
-  lineinfile: dest=/etc/network/interfaces regexp='^[     ]*dns-search.*' line='        dns-search toparlak.de'
-  notify:
-    - update debian resolvconf
-
 - name: set timezone
   copy: src={{ item }} dest=/{{ item }}
   with_items:

@@ -8,7 +8,7 @@
       apt: update_cache=yes cache_valid_time=86400 upgrade=yes
 
     - name: purge
-      script: scripts/dpkg-p.sh
+      shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
 
     - name: autoclean
       command: apt-get -y autoclean

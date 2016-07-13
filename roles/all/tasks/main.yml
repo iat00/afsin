@@ -1,4 +1,0 @@
----
-- copy: src={{ item }} dest=/{{ item }}
-  with_items:
-    - etc/hosts
