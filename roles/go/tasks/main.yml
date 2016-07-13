@@ -1,0 +1,3 @@
+---
+- apt: name=golang state=present
+- apt: name=golang-mode state=present

@@ -1,0 +1,16 @@
+*.retry
+*~
+.Xauthority
+.ansible
+.ansible_async
+.cache
+.config
+.gnupg
+.lesshst
+.local
+.mysql_history
+.pip
+.rnd
+.swipl-dir-history
+.zcompdump
+tmp
