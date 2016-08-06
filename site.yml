@@ -1,19 +1,38 @@
 ---
 - hosts: all
-  tags: [default]
   roles:
     - fail2ban
     - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}
 
 - hosts: all
-  tags: [users]
-  roles: [users]
+  roles: [users, afsin]
 
 - hosts: host03
-  tags:  [apache, dokuwiki, redis-server, swi-prolog]
   roles: [apache, dokuwiki, redis-server, swi-prolog]
 
-- hosts: host21:host22
-  tags:  [postfix]
+- hosts: host21:host22:host41:host42
   roles: [postfix]
+
+- hosts: gocd01
+  roles:
+    - gocd-server
+
+- hosts: gocd02
+  roles:
+    - gocd-agent
+
+- hosts: ngnx01:ngnx02
+  roles: [nginx]
+
+- hosts: ngnx03
+  roles:
+    - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: ngnx01, weight: 1}, {hostname: ngnx02, weight: 1}]}
+
+- hosts: zabx01
+  roles:
+    - zabbix-server
+
+- hosts: zabx02:zabx03
+  roles:
+    - { role: zabbix-agent, zabbix_server: zabx01 }

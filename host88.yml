@@ -1,0 +1,6 @@
+---
+- hosts: host88
+  tasks:
+    - group: name=cem gid=5002
+    - user: name=cem uid=5002 group=cem password="$6$pcr9h0DR$5/dRQIgpD42PjjCKRCJktqLqN6vGhn8bv2iTd/eyl3IQIl/noyYMezpJwM2JdVPDb8ROzJsjgriL2qhWfiWbO0" shell=/bin/bash comment="Cem Toparlak"
+    - copy: src=roles/users/files/sudoers.d.cem dest=/etc/sudoers.d/cem mode=0440
