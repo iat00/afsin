@@ -1,3 +1,4 @@
 ---
+- apt: name=python-pip state=present
 - apt: name=redis-server state=installed
 - pip: name=redis

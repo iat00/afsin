@@ -1,0 +1,8 @@
+---
+- hosts: zabx01
+  roles:
+    - zabbix-server
+
+- hosts: zabx02:zabx03
+  roles:
+    - { role: zabbix-agent, zabbix_server: zabx01 }
