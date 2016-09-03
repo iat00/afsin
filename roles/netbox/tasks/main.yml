@@ -1,0 +1,6 @@
+---
+- apt: name={{ item }}
+  with_items:
+    - libpq-dev
+    - python-psycopg2
+    - postgresql

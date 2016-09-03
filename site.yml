@@ -1,5 +1,28 @@
 ---
 - hosts: all
+  tags: upgrade
+  tasks:
+    - name: install aptitude
+      apt: name=aptitude state=present
+
+    - name: safe-upgrade
+      apt: update_cache=yes cache_valid_time=86400 upgrade=yes
+
+- hosts: all
+  tags: cleanup
+  tasks:
+    - name: purge
+      shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
+
+    - name: autoclean
+      command: apt-get -y autoclean
+
+    - name: autoremove
+      command: apt-get -y autoremove
+
+    - name: clean
+      command: apt-get clean
+- hosts: all
   tags: all
   roles:
     - fail2ban
@@ -16,7 +39,7 @@
   tasks:
     - apt: name=git state=present
 
-- hosts: host21:host22:host41:host42:host43:host44
+- hosts: host41:host43
   tags: postfix
   roles: [postfix]
 
@@ -38,3 +61,16 @@
   tags: nginx
   roles:
     - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: ngnx01, weight: 1}, {hostname: ngnx02, weight: 1}]}
+
+- hosts: host45
+  tags: netbox
+  roles:
+    - netbox
+
+- hosts: host03
+  tags: hacking
+  tasks:
+    - apt: name=nmap
+    - apt: name=python-nmap
+    - apt: name=ftpd
+    - apt: name=python-socketio-client

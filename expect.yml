@@ -1,5 +1,5 @@
 ---
-- hosts: host03
+- hosts: host40
   tasks:
     - apt: name=python-pexpect
     - expect: 

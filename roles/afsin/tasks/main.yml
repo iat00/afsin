@@ -1,6 +1,6 @@
 ---
 - name: create ~afsin/tmp
-  file: dest=~afsin/tmp  state=directory
+  file: dest=~afsin/tmp state=directory
 
 - name: create ~afsin/.ssh
   file: dest=~afsin/.ssh state=directory mode=0700 owner=afsin group=afsin
@@ -20,4 +20,4 @@
     - .zshrc
 
 - name: create ~afsin/tmp/foo
-  template: src=foo    dest=~afsin/tmp/foo
+  template: src=foo dest=~afsin/tmp/foo

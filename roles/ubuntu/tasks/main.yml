@@ -4,16 +4,18 @@
 - name: install apt packages
   apt: name={{ item }} state=installed
   with_items:
+    - ccze
     - facter
+    - fish
     - htop
+    - iftop
+    - libmodern-perl-perl
+    - mailutils
+    - mc
+    - netcat
+    - nmap
     - tmux
     - zsh
-    - mc
-    - mailutils
-    - fish
-    - ccze
-    - libmodern-perl-perl
-    - resolvconf
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed
@@ -32,4 +34,4 @@
   with_items:
     - etc/timezone
   notify:
-    - update ubuntu timezone
+    - update timezone (ubuntu)
