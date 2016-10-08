@@ -22,6 +22,7 @@
 
     - name: clean
       command: apt-get clean
+
 - hosts: all
   tags: all
   roles:
@@ -33,7 +34,7 @@
   tags: all
   roles: [users, afsin]
 
-- hosts: host03:host40
+- hosts: host40
   tags: ansible
   roles: [apache, dokuwiki, redis-server, swi-prolog, ansible]
   tasks:
@@ -74,3 +75,8 @@
     - apt: name=python-nmap
     - apt: name=ftpd
     - apt: name=python-socketio-client
+
+- hosts: host40
+  tasks:
+    - apt: name=bmon
+    - apt: name=httpie

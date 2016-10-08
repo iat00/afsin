@@ -6,6 +6,10 @@
 .config/
 .emacs.d/
 .lesshst
+.ssh/known_hosts
+.ssh/known_hosts*
 .swipl-dir-history/
 .zcompdump
 tmp/
+.httpie/
+.zhistory

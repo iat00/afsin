@@ -14,7 +14,7 @@
 - lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 3600' line='bantime = 86400' backrefs=yes
   notify:
     - restart fail2ban
-- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime = 600' line='bantime = 86400' backrefs=yes
+- lineinfile: dest=/etc/fail2ban/jail.conf regexp='^bantime *= 600' line='bantime = 86400' backrefs=yes
   notify:
     - restart fail2ban
     
