@@ -31,7 +31,7 @@
     - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}
 
 - hosts: all
-  tags: all
+  tags: users
   roles: [users, afsin]
 
 - hosts: host40
@@ -80,3 +80,4 @@
   tasks:
     - apt: name=bmon
     - apt: name=httpie
+    - pip: name=httpstat

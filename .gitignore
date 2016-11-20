@@ -13,3 +13,5 @@
 tmp/
 .httpie/
 .zhistory
+.vim/
+.viminfo
