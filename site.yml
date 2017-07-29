@@ -5,9 +5,6 @@
     - name: install aptitude
       apt: name=aptitude state=present
 
-    - name: safe-upgrade
-      apt: update_cache=yes cache_valid_time=86400 upgrade=yes
-
 - hosts: all
   tags: cleanup
   tasks:
@@ -81,3 +78,15 @@
     - apt: name=bmon
     - apt: name=httpie
     - pip: name=httpstat
+
+- hosts: fishtest
+  tags: fishtest
+  tasks:
+    - apt: name=git
+    - apt: name=g++
+    - apt: name=libqtcore4
+
+- hosts: host40
+  tags: salt
+  roles:
+    - salt

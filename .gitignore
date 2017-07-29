@@ -7,7 +7,7 @@
 .emacs.d/
 .lesshst
 .ssh/known_hosts
-.ssh/known_hosts*
+.ssh/id_rsa
 .swipl-dir-history/
 .zcompdump
 tmp/
@@ -15,3 +15,4 @@ tmp/
 .zhistory
 .vim/
 .viminfo
+BACKUP/
