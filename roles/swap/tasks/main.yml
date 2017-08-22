@@ -1,7 +1,0 @@
----
-- shell: fallocate -l 1073741824 /swap01
-  creates=/swap01
-- shell: mkswap /swap01
-- file: path=/swap01 mode=0600 owner=root group=root
-- mount: src=/swap01 name=none fstype=swap opts=sw passno=0 dump=0 state=present
-- shell: swapon /swap01
