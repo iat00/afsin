@@ -1,8 +1,0 @@
----
-- name: atom repo
-  apt_repository: repo=ppa:webupd8team/atom
-
-- name: install apt packages
-  apt: name={{ item }} state=installed
-  with_items:
-    - atom

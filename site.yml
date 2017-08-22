@@ -90,3 +90,10 @@
   tags: salt
   roles:
     - salt
+
+- hosts: host40
+  tags: prolog
+  tasks:
+    - apt_repository: repo=ppa:swi-prolog/stable
+    - apt: update_cache=yes cache_valid_time=86400
+    - apt: name=swi-prolog state=present

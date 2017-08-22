@@ -1,3 +1,0 @@
----
-- shell: curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
-- apt: name=gitlab-ci-multi-runner

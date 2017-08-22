@@ -2,7 +2,6 @@
 - group: name=afsin  gid=5000
 - group: name=cem    gid=5002
 - group: name=sarah  gid=5003
-- group: name=demet  gid=5004
 - group: name=atilla gid=5005
 - group: name=git    gid=5006
 
@@ -25,13 +24,6 @@
         password='VfPr46lMaAg8Y'
         uid=5005
         group=atilla
-
-- user: name=demet
-        comment='Demet Goerenek'
-        shell=/bin/bash
-        password='sI0W0Od/sE5CU'
-        uid=5004
-        group=demet
 
 - user: name=cem
         comment='Cem Toparlak'

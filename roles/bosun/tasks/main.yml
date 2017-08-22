@@ -1,2 +1,0 @@
----
-- docker: image=stackexchange/bosun state=started ports="4242:4242,8070:8070" restart_policy=always
