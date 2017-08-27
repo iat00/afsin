@@ -51,7 +51,6 @@ postdrop:x:111:
 afsin:x:5000:
 cem:x:5002:
 sarah:x:5003:
-demet:x:5004:
 atilla:x:5005:
 git:x:5006:
 dovecot:x:112:

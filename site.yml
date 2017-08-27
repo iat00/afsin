@@ -33,7 +33,7 @@
 
 - hosts: host40
   tags: ansible
-  roles: [apache, dokuwiki, redis-server, swi-prolog, ansible]
+  roles: [dokuwiki, redis-server]
   tasks:
     - apt: name=git state=present
 
@@ -85,11 +85,6 @@
     - apt: name=git
     - apt: name=g++
     - apt: name=libqtcore4
-
-- hosts: host40
-  tags: salt
-  roles:
-    - salt
 
 - hosts: host40
   tags: prolog
