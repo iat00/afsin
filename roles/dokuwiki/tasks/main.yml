@@ -1,3 +1,0 @@
----
-- copy: src=000-default.conf dest=/etc/apache2/sites-available/
-- apt: name=dokuwiki state=present
