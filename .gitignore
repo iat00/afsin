@@ -16,3 +16,4 @@ tmp/
 .vim/
 .viminfo
 BACKUP/
+shadow
