@@ -1,5 +1,0 @@
----
-- copy: src=opsdash-agent_1.5.1_amd64.deb dest=/tmp/
-- apt: deb=/tmp/opsdash-agent_1.5.1_amd64.deb
-- copy: src=agent.cfg dest=/etc/opsdash/ mode=0640 group=opsdash
-- service: name=opsdash-agentd state=started

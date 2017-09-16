@@ -1,3 +1,0 @@
----
-- user: name=teamspeak3 uid=1000 password='$6$R07Z.bKd$lAwlZbZr09i11OATZAqrNiFk2GTFxVaCiYGEPl5WncvjHE4lhTjiXpGwyY82un4Bomk0XXXaBYDyY.z0/03jC/' shell=/bin/bash 
-- unarchive: src=teamspeak3-server_linux-amd64-3.0.11.3.tar.gz dest=/home/teamspeak3

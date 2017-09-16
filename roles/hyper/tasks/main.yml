@@ -1,2 +1,0 @@
----
-- apt: name=qemu state=installed

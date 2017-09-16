@@ -1,55 +1,44 @@
 ---
-- hosts: all
-  tags: upgrade
+- hosts: host40
   tasks:
-    - name: install aptitude
-      apt: name=aptitude state=present
+  - block:
+    - apt_repository: repo=ppa:swi-prolog/stable
+    - apt: update_cache=yes cache_valid_time=86400
+    - apt: name={{ item }}
+      with_items:
+      - httpie
+      - swi-prolog
+      - git
+    - pip: name=httpstat
+    when: ansible_os_family == 'Debian'
 
 - hosts: all
-  tags: cleanup
   tasks:
-    - name: purge
-      shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
-
-    - name: autoclean
-      command: apt-get -y autoclean
-
-    - name: autoremove
-      command: apt-get -y autoremove
-
-    - name: clean
-      command: apt-get clean
-
-- hosts: all
-  tags: all
+  - block:
+    - apt: name=aptitude
+    - shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
+    - command: apt-get -y autoclean
+    - command: apt-get -y autoremove
+    - command: apt-get clean
+    when: ansible_os_family == 'Debian'
+  - block:
+    - apt: name=aptitude
+    - shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
+    - command: apt-get -y autoclean
+    - command: apt-get -y autoremove
+    - command: apt-get clean
+    when: ansible_os_family == 'Ubuntu'
   roles:
-    - fail2ban
-    - { role: ubuntu, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu'}
-    - { role: debian, emacs: emacs23-nox, when: ansible_distribution == 'Debian'}
+  - { role: fail2ban, when: ansible_os_family == 'Debian'}
+  - { role: ubuntu, emacs: emacs24-nox, when: ansible_os_family == 'Debian'}
 
 - hosts: all
   tags: users
   roles: [users, afsin]
 
-- hosts: host40
-  tags: ansible
-  roles: [dokuwiki, redis-server]
-  tasks:
-    - apt: name=git state=present
-
 - hosts: host41:host43
   tags: postfix
   roles: [postfix]
-
-- hosts: gocd01
-  tags: gocd
-  roles:
-    - gocd-server
-
-- hosts: gocd02
-  tags: gocd
-  roles:
-    - gocd-agent
 
 - hosts: ngnx01:ngnx02
   tags: nginx
@@ -58,37 +47,4 @@
 - hosts: ngnx03
   tags: nginx
   roles:
-    - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: ngnx01, weight: 1}, {hostname: ngnx02, weight: 1}]}
-
-- hosts: host45
-  tags: netbox
-  roles:
-    - netbox
-
-- hosts: host03
-  tags: hacking
-  tasks:
-    - apt: name=nmap
-    - apt: name=python-nmap
-    - apt: name=ftpd
-    - apt: name=python-socketio-client
-
-- hosts: host40
-  tasks:
-    - apt: name=bmon
-    - apt: name=httpie
-    - pip: name=httpstat
-
-- hosts: fishtest
-  tags: fishtest
-  tasks:
-    - apt: name=git
-    - apt: name=g++
-    - apt: name=libqtcore4
-
-- hosts: host40
-  tags: prolog
-  tasks:
-    - apt_repository: repo=ppa:swi-prolog/stable
-    - apt: update_cache=yes cache_valid_time=86400
-    - apt: name=swi-prolog state=present
+  - {role: nginx-lb, domain: toparlak.de, nginx_hosts: [{hostname: ngnx01, weight: 1}, {hostname: ngnx02, weight: 1}]}

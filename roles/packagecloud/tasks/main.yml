@@ -1,3 +1,0 @@
----
-- apt: name=ruby state=installed
-- gem: name=package_cloud state=present
