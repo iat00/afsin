@@ -1,0 +1,4 @@
+---
+- hosts: all
+  tags: users
+  roles: [users, afsin]
