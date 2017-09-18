@@ -1,3 +1,0 @@
----
-- name: update timezone (ubuntu)
-  command: dpkg-reconfigure --frontend noninteractive tzdata

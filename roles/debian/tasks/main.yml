@@ -25,8 +25,6 @@
   with_items:
     - yaml-mode
 
-- apt: name=salt-minion state=absent
-
 - name: disable ipv6
   copy: src={{ item }} dest=/{{ item }}
   with_items:
@@ -37,4 +35,4 @@
   with_items:
     - etc/timezone
   notify:
-    - update timezone (debian)
+    - update timezone
