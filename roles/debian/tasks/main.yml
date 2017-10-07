@@ -25,9 +25,7 @@
     - yaml-mode
 
 - name: disable ipv6
-  copy: src={{ item }} dest=/{{ item }}
-  with_items:
-    - etc/sysctl.d/disable-ipv6.conf
+  copy: content='net.ipv6.conf.all.disable_ipv6=1\n' dest=/etc/sysctl.d/disable-ipv6.conf
 
 - name: set timezone
   command: timedatectl set-timezone Europe/Berlin
