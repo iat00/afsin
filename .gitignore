@@ -5,11 +5,11 @@
 .cache/
 .config/
 .emacs.d/
+.httpie/
 .lesshst
 .ssh/known_hosts
 .swipl-dir-history/
-.zcompdump
-tmp/
-.httpie/
 .vim/
 .viminfo
+.zcompdump
+tmp/

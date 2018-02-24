@@ -1,0 +1,124 @@
+body{
+background-color:#DBE4FC;
+text-align:center;
+}
+#webseite{
+width:980px;
+margin:0 auto;
+}
+#navi ul{
+list-style:none;
+float:left;
+width:200px;
+}
+#navi li{
+float:left; 
+margin-left:5px;
+}
+#navi li:hover {
+background:rgba(23, 17, 133, 1);
+}
+#navi li a{
+text-decoration:none;
+font-family:Courier;
+color:white;
+font-size:17px;
+line-height:10px;
+padding-top:10px;
+}
+/*
+#webseite{
+width:1280px;
+margin:0, auto;
+}*/
+#header {
+width:980px;
+height:120px;
+background:#171185;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+border-radius:5px;
+}
+#header h1{
+padding-top:20px;
+font-size:40px;
+font-weight:bold;
+color:white;
+font-family:Courier;
+}
+
+/*#menue h2{
+padding-top:20px;
+font-weight:normal;
+color:white;
+font-family:Courier;
+}
+*/
+#main{
+width:1280px;
+}
+#menue{
+float:left;
+width:230px;
+height:600px;
+/*background:#171185;*/
+
+background: rgba(23, 17, 133, 0.5);
+margin-top:10px;
+margin-bottom:10px;
+border-radius:5px;
+-moz-border-radius:5px;
+-o-border-radius:5px;
+-webkit-border-radius:5px;
+}
+#inhalt{
+float:left;
+width:745px;
+height:600px;
+background:#ffffff;
+margin-top:10px;
+margin-left:5px;
+margin-bottom:10px;
+border-radius:5px;
+-moz-border-radius:5px;
+-o-border-radius:5px;
+-webkit-border-radius:5px;
+}
+#footer{
+width:980px;
+height:30px;
+background:#DBE4FC;
+border-radius:5px;
+-moz-border-radius:5px;
+-o-border-radius:5px;
+-webkit-border-radius:5px;
+/*margin:0px auto;*/
+clear:both;
+}
+form {
+width:270px; /* breite des Formulas*/
+padding: 100px;
+border-radius: 5px;
+text-align: left;
+}
+label{
+display: block;
+cursor: pointer;
+}
+input#besuchername,
+input#besuchermail,
+textarea {
+width: 300px;
+border: 1px solid #8c8c8c;
+border-radius: 5px;
+margin-bottom: 1em;
+}
+textarea{
+height: 15em;
+}
+input:focus,
+textarea:focus {
+background-color: #dbe4fc;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+<title>Galerie - Sarah Sagemüller</title>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link href="multibox/multibox.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]><link rel="stylesheet" href="multibox/ie6.css" type="text/css" media="all" /><![endif]-->
+<script type="text/javascript" src="multibox/mootools.js"></script>
+<script type="text/javascript" src="multibox/overlay.js"></script>
+<script type="text/javascript" src="multibox/multibox.js"></script>
+
+</head>
+
+<body>
+
+<div id="header">
+	<div id="logo">
+		<a href="index.html"><img src="img/logo.png" alt="Home"></a></div>
+	
+<div id="navi">
+	
+<ul>
+				<li><a href="ich.html">Über mich</a></li>
+				<li><a href="arbeiten2.html">Arbeiten</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+				<li><a href="impressum.html">Impressum</a></li>
+				<li><a href="login.html">LogIn</a></li>
+				
+	</ul>
+	</div>
+	</div>
+	
+	
+<div id="content_galerie">
+
+
+      <a href="img/profil4.png" id="mb1" class="mb" title="1. Bild (PNG)"><img src="img/profil4.png" alt="Bild 1" width="400"></a><div class="multiBoxDesc mb1">Niendorfer Gehege, Hamburg</div>
+      <a href="img/dunkel.jpg" id="mb2" class="mb" title="2. Bild (JPG)"><img src="img/dunkel.jpg" alt="Bild 2" width="150"></a><div class="multiBoxDesc mb2">Low Key</div>
+      <a href="img/avadon.jpg" id="mb3" class="mb" title="3. Bild (JPG)"><img src="img/avadon.jpg" alt="Bild 3" width="150"></a><div class="multiBoxDesc mb3">Ganz wie Avadon</div>
+      <a href="img/duo.jpg" id="mb4" class="mb" title="4. Bild (JPG)"><img src="img/duo.jpg" alt="Bild 4" width="200"></a><div class="multiBoxDesc mb4">Shooting</div>
+      
+	<script type="text/javascript">
+			var box = {};
+			window.addEvent('domready', function(){
+				box = new MultiBox('mb', {
+					useOverlay: true,
+					container: document.body,
+					contentColor: '#FFF',
+					showNumbers: true,
+					descClassName: 'multiBoxDesc',
+					path: 'multibox/'
+				});
+			});
+	</script>
+
+</div>
+
+<div id="footer">
+	<p id="textfooter">© Sarah Sagemüller, Mediengestalterin Digital & Print </p>
+</div>
+
+</body>
+</html>
