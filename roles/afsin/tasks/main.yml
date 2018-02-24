@@ -5,9 +5,6 @@
 - name: create ~afsin/.ssh
   file: dest=~afsin/.ssh state=directory mode=0700 owner=afsin group=afsin
 
-- name: copy id_rsa
-  copy: src=.ssh/id_rsa dest=~afsin/.ssh/id_rsa mode=600
-
 - copy: src={{ item }} owner=afsin group=afsin dest=~afsin/{{ item }}
   with_items:
     - .ssh/authorized_keys
