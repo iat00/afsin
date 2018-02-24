@@ -1,7 +1,6 @@
 *.retry
 *~
 .Xauthority
-.aptitude/
 .cache/
 .config/
 .emacs.d/
@@ -10,6 +9,5 @@
 .ssh/known_hosts
 .swipl-dir-history/
 .vim/
-.viminfo
 .zcompdump
 tmp/
