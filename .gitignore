@@ -7,13 +7,9 @@
 .emacs.d/
 .lesshst
 .ssh/known_hosts
-.ssh/id_rsa
 .swipl-dir-history/
 .zcompdump
 tmp/
 .httpie/
-.zhistory
 .vim/
 .viminfo
-BACKUP/
-shadow
