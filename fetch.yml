@@ -1,8 +1,6 @@
 ---
 - hosts: all
+  gather_facts: no
   tasks:
-    - fetch: src={{ item }} dest=~afsin/ALL
-      with_items:
-        - /etc/passwd
-        - /etc/group
-        - /etc/shadow
+    - fetch: src={{ item }} dest=ALL
+      with_items: '{{ paths }}'
