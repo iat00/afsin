@@ -15,9 +15,13 @@
     - mc
     - netcat
     - nmap
+    - ntp
+    - rsyslog
+    - sudo
     - traceroute
     - tmux
     - zsh
+    - iputils-ping
 
 - apt: name={{ emacs }} state=installed
 - apt: name={{ item }} state=installed

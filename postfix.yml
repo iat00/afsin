@@ -1,4 +1,4 @@
 ---
-- hosts: host41:host43
+- hosts: postfix
   tags: postfix
   roles: [postfix]

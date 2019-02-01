@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  gather_facts: no
   tasks:
     - fetch: src={{ item }} dest=ALL
       with_items: '{{ paths }}'

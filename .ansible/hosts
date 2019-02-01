@@ -1,3 +1,9 @@
-host40 ansible_host=host40.toparlak.de
-host41 ansible_host=host41.toparlak.de
-host43 ansible_host=host43.toparlak.de
+host40
+host42
+host43
+host44
+
+[postfix]
+host42
+host43
+host44

@@ -16,9 +16,13 @@
     - user: name=spamd home=/var/log/spamassassin shell=/bin/false group=spamd
 
     - copy: src=spamassassin dest=/etc/default/spamassassin
-    - copy: src=local.cf dest=/etc/spamassassin/local.cf
+    - lineinfile: 
+        path: /etc/spamassassin/local.cf
+        regexp: '^# rewrite_header Subject(.*)$'
+        line: 'rewrite_header Subject\1'
+        backrefs: yes
 
-    - service: name=spamassassin state=started
+    - service: name=spamassassin state=started enabled=yes
       notify:
         - restart postfix
 
