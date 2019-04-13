@@ -6,7 +6,7 @@
       apt_key: url=http://pkg.duosecurity.com/APT-GPG-KEY-DUO
 
     - name: Install Duo Unix
-      apt: name=duo-unix state=installed
+      apt: name=duo-unix state=present
 
     - name: Duo integration key
       lineinfile: dest=/etc/duo/login_duo.conf regexp='^ikey = $'     line='ikey = DII88OWW8WTCG8KH0YVA' backrefs=yes

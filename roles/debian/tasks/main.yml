@@ -2,7 +2,7 @@
 - apt: update_cache=yes cache_valid_time=86400
 
 - name: install apt packages
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
     - atop
     - ccze
@@ -23,13 +23,10 @@
     - zsh
     - iputils-ping
 
-- apt: name={{ emacs }} state=installed
-- apt: name={{ item }} state=installed
+- apt: name={{ emacs }} state=present
+- apt: name={{ item }} state=present
   with_items:
     - yaml-mode
 
 - name: disable ipv6
   copy: content='net.ipv6.conf.all.disable_ipv6=1\n' dest=/etc/sysctl.d/disable-ipv6.conf
-
-- name: set timezone
-  command: timedatectl set-timezone Europe/Berlin

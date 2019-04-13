@@ -1,5 +1,5 @@
 ---
-- hosts: host40:host50
+- hosts: host50
   tasks:
   - block:
     - apt_repository: repo=ppa:swi-prolog/stable
@@ -14,20 +14,8 @@
   tasks:
   - block:
     - apt: name=aptitude
-    - shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
     - apt: update_cache=yes cache_valid_time=86400
-    - command: apt-get -y autoclean
-    - command: apt-get -y autoremove
-    - command: apt-get clean
     when: ansible_os_family == 'Debian'
-  - block:
-    - apt: name=aptitude
-    - apt: update_cache=yes cache_valid_time=86400
-    - shell: for i in `dpkg --list|egrep '^rc'|awk '{print $2}'` ; do dpkg -P $i ; done
-    - command: apt-get -y autoclean
-    - command: apt-get -y autoremove
-    - command: apt-get clean
-    when: ansible_os_family == 'CentOS'
   roles:
   - { role: fail2ban, when: ansible_os_family == 'Debian'}
   - { role: debian, emacs: emacs24-nox, when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'}
