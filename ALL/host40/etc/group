@@ -52,3 +52,6 @@ afsin:x:5000:
 git:x:5006:
 redis:x:112:
 dirmngr:x:113:
+fuse:x:114:
+scanner:x:115:
+colord:x:116:

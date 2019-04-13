@@ -2,6 +2,7 @@ host40
 host42
 host43
 host44
+host50
 
 [postfix]
 host42

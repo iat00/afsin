@@ -1,5 +1,5 @@
 ---
-- hosts: host40
+- hosts: host40:host50
   tasks:
   - block:
     - apt_repository: repo=ppa:swi-prolog/stable
@@ -8,7 +8,6 @@
       - httpie
       - swi-prolog
       - git
-    - pip: name=httpstat
     when: ansible_os_family == 'Debian'
 
 - hosts: all
