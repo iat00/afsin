@@ -9,7 +9,6 @@
         group=git
 
 - user: name=afsin
-        comment='Afsin Toparlak'
         shell=/bin/zsh
         password='SMWId7KJTgtlg'
         uid=5000
