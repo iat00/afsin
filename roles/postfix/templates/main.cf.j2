@@ -17,6 +17,10 @@ append_dot_mydomain = no
 
 readme_directory = no
 
+# See http://www.postfix.org/COMPATIBILITY_README.html -- default to 2 on
+# fresh installs.
+compatibility_level = 2
+
 # TLS parameters
 smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
@@ -33,7 +37,7 @@ alias_maps = hash:/etc/aliases
 virtual_alias_maps = hash:/etc/postfix/virtual
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = toparlak.de, localhost, localhost.localdomain
+mydestination = $myhostname, toparlak.de, localhost, localhost.localdomain
 relayhost = 
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_size_limit = 0
@@ -43,3 +47,5 @@ smtpd_recipient_restrictions = reject_unknown_sender_domain, reject_unknown_reci
 inet_protocols = ipv4
 policy-spf_time_limit = 3600s
 message_size_limit = 102400000
+bounce_queue_lifetime = 1d
+maximal_queue_lifetime = 2d

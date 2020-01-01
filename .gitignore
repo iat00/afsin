@@ -15,6 +15,7 @@ tmp/
 .lnav
 .ssh/id_rsa
 .ssh/id_rsa.old
+.ssh/id_rsa.old.pub
 .ssh/id_rsa.pub
 .sudo_as_admin_successful
 .local

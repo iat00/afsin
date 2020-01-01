@@ -13,8 +13,9 @@
 - hosts: all
   tasks:
   - block:
-    - apt: name=aptitude
     - apt: update_cache=yes cache_valid_time=86400
+    - apt: name=aptitude
+    - apt: name=apt-utils
     when: ansible_os_family == 'Debian'
   roles:
   - { role: fail2ban, when: ansible_os_family == 'Debian'}

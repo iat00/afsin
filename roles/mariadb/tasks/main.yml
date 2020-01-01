@@ -1,0 +1,4 @@
+- package:
+    name: mariadb-server
+- package:
+    name: mariadb-client
