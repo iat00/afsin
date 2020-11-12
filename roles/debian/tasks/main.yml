@@ -1,29 +1,8 @@
 ---
 - apt: update_cache=yes cache_valid_time=86400
-
-- name: install apt packages
-  apt: name={{ item }} state=present
-  with_items:
-    - atop
-    - ccze
-    - facter
-    - fish
-    - htop
-    - iftop
-    - libmodern-perl-perl
-    - mailutils
-    - mc
-    - netcat
-    - nmap
-    - ntp
-    - rsyslog
-    - sudo
-    - traceroute
-    - tmux
-    - zsh
-    - iputils-ping
-
-- apt: name={{ emacs }} state=present
-- apt: name={{ item }} state=present
-  with_items:
-    - yaml-mode
+- apt: 
+    name: [atop, ccze, facter, fish, htop, iftop, libmodern-perl-perl, mailutils, mc, netcat, nmap, ntp, rsyslog, sudo, traceroute, tmux, zsh, iputils-ping]
+- apt:
+    name: emacs
+- apt:
+    name: yaml-mode

@@ -1,21 +1,19 @@
 ---
-- hosts: host50
+- hosts: host60
   tasks:
   - block:
-    - apt_repository: repo=ppa:swi-prolog/stable
-    - apt: name={{ item }}
-      with_items:
-      - httpie
-      - swi-prolog
-      - git
+    - apt_repository:
+        repo: 'ppa:swi-prolog/stable'
+    - apt:
+        name: ['httpie', 'swi-prolog', 'git']
     when: ansible_os_family == 'Debian'
 
 - hosts: all
   tasks:
   - block:
     - apt: update_cache=yes cache_valid_time=86400
-    - apt: name=aptitude
-    - apt: name=apt-utils
+    - apt:
+        name: [aptitude, apt-utils]
     when: ansible_os_family == 'Debian'
   roles:
   - { role: fail2ban, when: ansible_os_family == 'Debian'}
